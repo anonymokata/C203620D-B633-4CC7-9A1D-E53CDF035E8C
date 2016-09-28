@@ -1,0 +1,5 @@
+
+
+
+Instruction to run the program:
+1) make -f calc.makefile test
