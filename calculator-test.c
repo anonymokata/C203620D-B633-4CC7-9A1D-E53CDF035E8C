@@ -15,7 +15,14 @@ ck_assert_msg(roman_to_decimal_digit_value('M') == 1000,"operation failed for M"
 
 }
 END_TEST
+START_TEST(invalid_roman_digit)
+{
+#line 27
+ck_assert_msg(roman_to_decimal_digit_value('\0') == 0,"operation failed for end of line");
+ck_assert_msg(roman_to_decimal_digit_value('K') == -1,"operation failed for passing wrong input");
 
+}
+END_TEST
 
 int main(void)
 {
@@ -26,6 +33,7 @@ int main(void)
 
     suite_add_tcase(s1, tc1_1);
     tcase_add_test(tc1_1, single_roman_char_conversion);
+    tcase_add_test(tc1_1, invalid_roman_digit);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);

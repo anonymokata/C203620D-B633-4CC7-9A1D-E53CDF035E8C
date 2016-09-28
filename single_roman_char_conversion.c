@@ -1,7 +1,7 @@
 /*function to return decimal value of the roman digit*/
 int roman_to_decimal_digit_value(char roman_character)
 {
-	int decimal_value=0;
+	static int decimal_value=0;
 	/*switch case to return the decimal value based on the character passed to it*/
 	switch(roman_character){
 	case 'I': decimal_value = 1;
