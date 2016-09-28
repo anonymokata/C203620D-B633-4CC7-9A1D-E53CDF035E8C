@@ -16,7 +16,7 @@ int roman_string_to_decimal_value(char roman_string[])
 			decimal_number = decimal_number + roman_to_decimal_digit_value(roman_string[roman_string_index]);
 		else{
 			decimal_number = decimal_number+ (roman_to_decimal_digit_value(roman_string[roman_string_index+1]) - roman_to_decimal_digit_value(roman_string[roman_string_index]));
-			
+			roman_string_index++;
 			
 		}
 		roman_string_index++;
