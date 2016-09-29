@@ -103,7 +103,14 @@ END_TEST
 START_TEST(XXXC_equals_70)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("XXXC") == 70,"Not a valid roman number");
+ck_assert_msg(roman_string_to_decimal_value("XXXC") == 70,"Not a valid roman number := XXXC");
+}
+END_TEST
+
+START_TEST(LV_equals_55)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("LV") == 55,"valid roman number: lv == 55");
 }
 END_TEST
 
@@ -184,6 +191,7 @@ int main(void)
     tcase_add_test(tc1_1, MMCCCXLV_equals_2345);
     tcase_add_test(tc1_1, zero_equals_zero);
     tcase_add_test(tc1_1, XXXC_equals_70);
+    tcase_add_test(tc1_1, LV_equals_55);
     tcase_add_test(tc1_1, _1000_equals_M);
     tcase_add_test(tc1_1, _500_equals_D);
     tcase_add_test(tc1_1, _1500_equals_MD);
