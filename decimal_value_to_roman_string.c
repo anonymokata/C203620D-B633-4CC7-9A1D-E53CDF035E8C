@@ -1,17 +1,19 @@
 #include "post_roman_digits.h"
 #include "pre_roman_digits.h"
 #define zero 0
-#define M_value 1000
-#define D_value 500
-#define Nine_hundred 900
-#define C_value 100
-#define Four_hundred 400
-#define L_value 50
-#define Ninty 90 
-#define X_value 10
-#define Forty 40
-#define V_value 5
-#define Nine 9
+#define M_VALUE 1000
+#define D_VALUE 500
+#define NINE_HUNDRED 900
+#define C_VALUE 100
+#define FOUR_HUNDRED 400
+#define L_VALUE 50
+#define NINTY 90 
+#define X_VALUE 10
+#define FORTY 40
+#define V_VALUE 5
+#define NINE 9
+#define FOUR 4
+#define ONE 1
 
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
@@ -22,61 +24,72 @@ or pre_roman_digit_characters depending on the input */
 	while(decimal_number != zero)
 	{
 	
-		if(decimal_number >= M_value){ // converstion for 1000
-			buffer = post_roman_digit_characters('M',decimal_number/M_value,buffer);
-			decimal_number = decimal_number - (decimal_number/M_value) * M_value;
-		}/*End of 1000 value*/
-	else if(decimal_number >=D_value){ // conversion for 500
-			if(decimal_number <(Nine_hundred)){
-				buffer = post_roman_digit_characters('D',decimal_number/D_value,buffer);
-				decimal_number = decimal_number - (decimal_number/D_value) * D_value;
+		if(decimal_number >= M_VALUE){ // converstion for 1000
+			buffer = post_roman_digit_characters('M',decimal_number/M_VALUE,buffer);
+			decimal_number = decimal_number - (decimal_number/M_VALUE) * M_VALUE;
+		}/*End of 1000 VALUE*/
+	else if(decimal_number >=D_VALUE){ // conversion for 500
+			if(decimal_number <(NINE_HUNDRED)){
+				buffer = post_roman_digit_characters('D',decimal_number/D_VALUE,buffer);
+				decimal_number = decimal_number - (decimal_number/D_VALUE) * D_VALUE;
 			}
 	else{
 				buffer = pre_roman_digit_characters('C','M',buffer);
-				decimal_number = decimal_number - (Nine_hundred);
+				decimal_number = decimal_number - (NINE_HUNDRED);
 			}
 	}/*End of 500*/
-	else if(decimal_number >=C_value){ // conversion for 100
-			if(decimal_number < (Four_hundred)){
-				buffer = post_roman_digit_characters('C',decimal_number/C_value,buffer);
-				decimal_number = decimal_number - (decimal_number/C_value) * C_value;
+	else if(decimal_number >=C_VALUE){ // conversion for 100
+			if(decimal_number < (FOUR_HUNDRED)){
+				buffer = post_roman_digit_characters('C',decimal_number/C_VALUE,buffer);
+				decimal_number = decimal_number - (decimal_number/C_VALUE) * C_VALUE;
 			}
 			else{
 				buffer = pre_roman_digit_characters('L','D',buffer);
-				decimal_number = decimal_number - (Four_hundred);
+				decimal_number = decimal_number - (FOUR_HUNDRED);
 			}
 		}/* end of if(decimal_number >=100) */
-	else if(decimal_number >=L_value){ // conversion for 50
-			if(decimal_number < (Ninty)){
-				buffer = post_roman_digit_characters('L',decimal_number/L_value,buffer);
-				decimal_number = decimal_number - (decimal_number/L_value) * L_value;
+	else if(decimal_number >=L_VALUE){ // conversion for 50
+			if(decimal_number < (NINTY)){
+				buffer = post_roman_digit_characters('L',decimal_number/L_VALUE,buffer);
+				decimal_number = decimal_number - (decimal_number/L_VALUE) * L_VALUE;
 			}
 			else{
 				buffer = pre_roman_digit_characters('X','C',buffer);
-				decimal_number = decimal_number - (Ninty);
+				decimal_number = decimal_number - (NINTY);
 			}
 		} /*end of if(decimal_number >=50) */
 	
-	else if(decimal_number >=X_value){ //conversion for 10
-			if(decimal_number < (Forty)){
-				buffer = post_roman_digit_characters('X',decimal_number/X_value,buffer);
-				decimal_number = decimal_number - (decimal_number/X_value) * X_value;
+	else if(decimal_number >=X_VALUE){ //conversion for 10
+			if(decimal_number < (FORTY)){
+				buffer = post_roman_digit_characters('X',decimal_number/X_VALUE,buffer);
+				decimal_number = decimal_number - (decimal_number/X_VALUE) * X_VALUE;
 			}
 			else{
 				buffer = pre_roman_digit_characters('X','L',buffer);
-				decimal_number = decimal_number - (Forty);
+				decimal_number = decimal_number - (FORTY);
 			}
 		}/*end of if(decimal_number >=10) */
-	else if(decimal_number >= V_value){ //conversion for 5
-			if(decimal_number < (Nine)){
-				buffer = post_roman_digit_characters('V',decimal_number/V_value,buffer);
-				decimal_number = decimal_number - (decimal_number/V_value) * V_value;
+	else if(decimal_number >= V_VALUE){ //conversion for 5
+			if(decimal_number < (NINE)){
+				buffer = post_roman_digit_characters('V',decimal_number/V_VALUE,buffer);
+				decimal_number = decimal_number - (decimal_number/V_VALUE) * V_VALUE;
 			}
 			else{
 				buffer = pre_roman_digit_characters('I','X',buffer);
-				decimal_number = decimal_number - (Nine);
+				decimal_number = decimal_number - (NINE);
 			}
 		}/*end of if(decimal_number >=5) */
+	else if(decimal_number >=ONE){ // conversion for 1
+			if(decimal_number < FOUR)
+			{
+				buffer = post_roman_digit_characters('I',decimal_number/ONE,buffer);
+				decimal_number = decimal_number - (decimal_number/ONE) * ONE;
+			}
+			else{
+				buffer = pre_roman_digit_characters('I','V',buffer);
+				decimal_number = decimal_number - (FOUR);
+			}
+		}/*end of if(decimal_number >=1) */
 
 	}/*End of while loop*/
 

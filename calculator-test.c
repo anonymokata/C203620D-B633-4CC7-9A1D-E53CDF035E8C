@@ -149,6 +149,20 @@ ck_assert_msg(strcmp(decimal_number_to_roman_string(15,buffer),"XV") == 0,"Opera
 }
 END_TEST
 
+START_TEST(_4_equals_IV)
+{
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_number_to_roman_string(4,buffer),"IV") == 0,"Operation failed to convert decimal to roman value: 4");
+}
+END_TEST
+
+START_TEST(_2_equals_II)
+{
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_number_to_roman_string(15,buffer),"II") == 0,"Operation failed to convert decimal to roman value: 2");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -176,6 +190,8 @@ int main(void)
     tcase_add_test(tc1_1, _1900_equals_MCM);
     tcase_add_test(tc1_1, _150_equals_CL);
     tcase_add_test(tc1_1, _15_equals_XV);
+    tcase_add_test(tc1_1, _4_equals_IV);
+    tcase_add_test(tc1_1, _2_equals_II);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
