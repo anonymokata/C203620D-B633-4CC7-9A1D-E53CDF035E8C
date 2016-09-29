@@ -34,11 +34,52 @@ ck_assert_msg(roman_string_to_decimal_value("MM") == 2000,"operation failed to c
 
 }
 END_TEST
-
 START_TEST(invalid_roman_string)
 {
 
 ck_assert_msg(roman_string_to_decimal_value("DM") == 1500,"wrong format to pass the roman value DM");
+}
+END_TEST
+
+START_TEST(II_equals_2)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("II") == 2,"operation failed to convert roman to decimal of II");
+}
+END_TEST
+
+START_TEST(IV_equals_4)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("IV") == 4,"operation failed to convert roman to decimal of IV");
+}
+END_TEST
+
+START_TEST(VI_equals_6)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("VI") == 6,"operation failed to convert roman to decimal of VI");
+}
+END_TEST
+
+START_TEST(XXXVII_equals_37)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("XXXVII") == 37,"operation failed to convert roman to decimal of XXXVII");
+}
+END_TEST
+
+START_TEST(invalid_roman_string_1)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("XXC") == 80,"invalid roman string XXC");
+}
+END_TEST
+
+START_TEST(MMCCCXLV_equals_2345)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("MMCCCXLV") == 2345,"operation failed to convert roman to decimal of MMCCCXLV");
 }
 END_TEST
 
@@ -54,6 +95,12 @@ int main(void)
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
     tcase_add_test(tc1_1, invalid_roman_string);
+    tcase_add_test(tc1_1, II_equals_2);
+    tcase_add_test(tc1_1, IV_equals_4);
+    tcase_add_test(tc1_1, VI_equals_6);
+    tcase_add_test(tc1_1, XXXVII_equals_37);
+    tcase_add_test(tc1_1, invalid_roman_string_1);
+    tcase_add_test(tc1_1, MMCCCXLV_equals_2345);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
