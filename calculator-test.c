@@ -159,7 +159,7 @@ END_TEST
 START_TEST(_2_equals_II)
 {
 /*condition to convert back from decimal to roman number*/
-ck_assert_msg(strcmp(decimal_number_to_roman_string(15,buffer),"II") == 0,"Operation failed to convert decimal to roman value: 2");
+ck_assert_msg(strcmp(decimal_number_to_roman_string(2,buffer),"II") == 0,"Operation failed to convert decimal to roman value: 2");
 }
 END_TEST
 
