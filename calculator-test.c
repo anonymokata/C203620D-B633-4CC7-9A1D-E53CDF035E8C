@@ -97,6 +97,13 @@ ck_assert_msg(roman_string_to_decimal_value("0") == 0,"Invalid Operation passed 
 }
 END_TEST
 
+START_TEST(XXXC_equals_70)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("XXXC") == 70,"Not a valid roman number");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -117,6 +124,7 @@ int main(void)
     tcase_add_test(tc1_1, invalid_roman_string_1);
     tcase_add_test(tc1_1, MMCCCXLV_equals_2345);
     tcase_add_test(tc1_1, zero_equals_zero);
+    tcase_add_test(tc1_1, XXXC_equals_70);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
