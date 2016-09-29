@@ -4,6 +4,8 @@
 #define M_value 1000
 #define D_value 500
 #define Nine_hundred 900
+#define C_value 100
+#define Four_hundred 400
 
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
@@ -28,6 +30,16 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (Nine_hundred);
 			}
 	}/*End of 500*/
+	else if(decimal_number >=C_value){ // conversion for 100
+			if(decimal_number < (Four_hundred)){
+				buffer = post_roman_digit_characters('C',decimal_number/C_value,buffer);
+				decimal_number = decimal_number - (decimal_number/C_value) * C_value;
+			}
+			else{
+				buffer = pre_roman_digit_characters('L','D',buffer);
+				decimal_number = decimal_number - (Four_hundred);
+			}
+		}/* end of if(decimal_number >=100) */
 
 
 
