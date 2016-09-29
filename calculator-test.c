@@ -166,25 +166,33 @@ END_TEST
 START_TEST(_2_equals_II)
 {
 /*condition to convert back from decimal to roman number*/
+
 ck_assert_msg(strcmp(decimal_number_to_roman_string(2,buffer),"II") == 0,"Operation failed to convert decimal to roman value: 2");
+
 }
 END_TEST
 
 START_TEST(roman_addition_M_D_equals_MD)
 {
+
 ck_assert_msg(strcmp(calculate_roman_numbers("M","D","ADD",buffer),"MD") == 0,"Operation failed to add the two roman value to MD");
+
 }
 END_TEST
 
 START_TEST(roman_addition_I_I_equals_II)
 {
+
 ck_assert_msg(strcmp(calculate_roman_numbers("I","I","ADD",buffer),"II") == 0,"Operation failed to add the two roman value to II");
+
 }
 END_TEST
 
-START_TEST(roman_addition_0_0_equals_0)
+START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
-ck_assert_msg(strcmp(calculate_roman_numbers("0","0","ADD",buffer),"0") == 0,"Operation not exist for adding zeros");
+
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL","ADD",buffer),"") == 0,"Invalid operation bad input : BAD ");
+
 }
 END_TEST
 
@@ -220,7 +228,7 @@ int main(void)
     tcase_add_test(tc1_1, _2_equals_II);
     tcase_add_test(tc1_1, roman_addition_M_D_equals_MD);
     tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
-    tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
+    tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);

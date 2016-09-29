@@ -29,8 +29,6 @@ int roman_string_to_decimal_value(char roman_string[50])
                  return FAILURE;
              }
          }
-
-
 	if(roman_to_decimal_digit_value(roman_string[roman_string_index]) >= roman_to_decimal_digit_value(roman_string[roman_string_index+1])) 
 			decimal_number = decimal_number + roman_to_decimal_digit_value(roman_string[roman_string_index]);
 		else{
