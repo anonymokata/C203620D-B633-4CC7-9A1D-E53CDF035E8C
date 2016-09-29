@@ -191,7 +191,15 @@ END_TEST
 START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL","ADD",buffer),"") == 0,"Invalid operation bad input : BAD ");
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL","ADD",buffer),"") == 0,"Invalid operation bad input : BAD XXLL ADD");
+
+}
+END_TEST
+
+START_TEST(roman_addition_XX_BAD_equals_NULL)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("XX","BAD","ADD",buffer),"") == 0,"Invalid operation bad second input : XX BAD ADD ");
 
 }
 END_TEST
@@ -229,6 +237,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_M_D_equals_MD);
     tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
     tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
+    tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
