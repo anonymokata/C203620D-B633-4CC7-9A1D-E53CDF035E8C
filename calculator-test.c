@@ -109,9 +109,22 @@ END_TEST
 
 START_TEST(_1000_equals_M)
 {
-
 /*condition to convert back from decimal to roman number*/
 ck_assert_msg(strcmp(decimal_number_to_roman_string(1000,buffer),"M") == 0,"Operation failed to convert decimal to roman value: 1000");
+}
+END_TEST
+
+START_TEST(_500_equals_D)
+{
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_number_to_roman_string(500,buffer),"D") == 0,"Operation failed to convert decimal to roman value: 500");
+}
+END_TEST
+
+START_TEST(_1500_equals_MD)
+{
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_number_to_roman_string(1500,buffer),"MD") == 0,"Operation failed to convert decimal to roman value: 1500");
 }
 END_TEST
 
@@ -137,6 +150,8 @@ int main(void)
     tcase_add_test(tc1_1, zero_equals_zero);
     tcase_add_test(tc1_1, XXXC_equals_70);
     tcase_add_test(tc1_1, _1000_equals_M);
+    tcase_add_test(tc1_1, _500_equals_D);
+    tcase_add_test(tc1_1, _1500_equals_MD);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);

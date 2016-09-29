@@ -1,6 +1,7 @@
 #define zero 0
 #define M_value 1000
-
+#define D_value 500
+#define Nine_hundred 900
 
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
@@ -15,6 +16,12 @@ or pre_roman_digit_characters depending on the input */
 			buffer = post_roman_digit_characters('M',decimal_number/M_value,buffer);
 			decimal_number = decimal_number - (decimal_number/M_value) * M_value;
 		}/*End of 1000 value*/
+	else if(decimal_number >=D_value){ // conversion for 500
+			if(decimal_number <(Nine_hundred)){
+				buffer = post_roman_digit_characters('D',decimal_number/D_value,buffer);
+				decimal_number = decimal_number - (decimal_number/D_value) * D_value;
+			}
+	}
 	}/*End of while loop*/
 
 	*buffer = '\0';
