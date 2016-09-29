@@ -2,7 +2,7 @@
 #define M_value 1000
 
 
-char* decimal_number_to_roman_string(int decimal_number,const char* buffer)
+char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
 
 	char *final_roman_string = buffer;
