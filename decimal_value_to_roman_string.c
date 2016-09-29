@@ -10,6 +10,8 @@
 #define Ninty 90 
 #define X_value 10
 #define Forty 40
+#define V_value 5
+#define Nine 9
 
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
@@ -54,6 +56,7 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (Ninty);
 			}
 		} /*end of if(decimal_number >=50) */
+	
 	else if(decimal_number >=X_value){ //conversion for 10
 			if(decimal_number < (Forty)
 				buffer = post_roman_digit_characters('X',decimal_number/X_value,buffer);
@@ -64,7 +67,16 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (Forty);
 			}
 		}/*end of if(decimal_number >=10) */
-
+	else if(decimal_number >= V_value){ //conversion for 5
+			if(decimal_number < (Nine)){
+				buffer = post_roman_digit_characters('V',decimal_number/V_value,buffer);
+				decimal_number = decimal_number - (decimal_number/V_value) * V_value;
+			}
+			else{
+				buffer = pre_roman_digit_characters('I','X',buffer);
+				decimal_number = decimal_number - (Nine);
+			}
+		}/*end of if(decimal_number >=5) */
 
 	}/*End of while loop*/
 
