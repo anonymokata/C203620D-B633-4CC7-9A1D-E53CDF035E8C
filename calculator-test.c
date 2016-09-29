@@ -83,6 +83,13 @@ ck_assert_msg(roman_string_to_decimal_value("MMCCCXLV") == 2345,"operation faile
 }
 END_TEST
 
+START_TEST(zero_equals_zero)
+{
+
+ck_assert_msg(roman_string_to_decimal_value("0") == 0,"Invalid Operation passed zero value");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -101,6 +108,7 @@ int main(void)
     tcase_add_test(tc1_1, XXXVII_equals_37);
     tcase_add_test(tc1_1, invalid_roman_string_1);
     tcase_add_test(tc1_1, MMCCCXLV_equals_2345);
+    tcase_add_test(tc1_1, zero_equals_zero);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
