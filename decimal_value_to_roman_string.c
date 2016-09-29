@@ -8,6 +8,8 @@
 #define Four_hundred 400
 #define L_value 50
 #define Ninty 90 
+#define X_value 10
+#define Forty 40
 
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
@@ -52,7 +54,16 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (Ninty);
 			}
 		} /*end of if(decimal_number >=50) */
-
+	else if(decimal_number >=X_value){ //conversion for 10
+			if(decimal_number < (Forty)
+				buffer = post_roman_digit_characters('X',decimal_number/X_value,buffer);
+				decimal_number = decimal_number - (decimal_number/X_value) * X_value;
+			}
+			else{
+				buffer = pre_roman_digit_characters('X','L',buffer);
+				decimal_number = decimal_number - (Forty);
+			}
+		}/*end of if(decimal_number >=10) */
 
 
 	}/*End of while loop*/
