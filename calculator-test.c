@@ -27,9 +27,16 @@ END_TEST
 
 START_TEST(roman_string_to_decimal)
 {
-#line 31
+
 /*condition to check the string of roman numbers*/
 ck_assert_msg(roman_string_to_decimal_value("MD") == 1500,"operation failed to convert roman to decimal of MD");
+
+}
+END_TEST
+
+START_TEST(roman_string_to_decimal_1)
+{
+
 ck_assert_msg(roman_string_to_decimal_value("MM") == 2000,"operation failed to convert roman to decimal of MM");
 
 }
@@ -101,6 +108,7 @@ int main(void)
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
+    tcase_add_test(tc1_1, roman_string_to_decimal_1);
     tcase_add_test(tc1_1, invalid_roman_string);
     tcase_add_test(tc1_1, II_equals_2);
     tcase_add_test(tc1_1, IV_equals_4);
