@@ -170,6 +170,13 @@ ck_assert_msg(strcmp(decimal_number_to_roman_string(2,buffer),"II") == 0,"Operat
 }
 END_TEST
 
+START_TEST(roman_addition_M_D_equals_MD)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("M","D","ADD",buffer),"MD") == 0,"Operation failed to add the two roman value to MD");
+
+}
+END_TEST
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -200,6 +207,7 @@ int main(void)
     tcase_add_test(tc1_1, _15_equals_XV);
     tcase_add_test(tc1_1, _4_equals_IV);
     tcase_add_test(tc1_1, _2_equals_II);
+    tcase_add_test(tc1_1, roman_addition_M_D_equals_MD);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
