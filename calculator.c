@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "roman_string_to_decimal_value.h"
 #include "decimal_value_to_roman_string.h"
-#include "claculator_addition.h"
-#include "claculator_subtraction.h"
+#include "calculator_addition.h"
+#include "calculator_subtraction.h"
 # define CHAR_LENGTH 50
 # define ADD_SUBTRACT 10
 
