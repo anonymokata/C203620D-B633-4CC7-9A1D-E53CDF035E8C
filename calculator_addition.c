@@ -12,6 +12,10 @@ char* addition_of_roman_numbers(int first_number,int second_number,char* buffer)
 			return FAILURE;
 		}
 		else{
+			//printf("first = %d \n",first_number);
+			//printf("second = %d \n",second_number);
+			//printf("buffer = %s",buffer);
+			printf("final value from addition function= %s \n",decimal_number_to_roman_string((first_number + second_number),buffer));
 			/*calculate function calls decimal_number_to_roman_string function to convert decimal to roman value*/
 			 return decimal_number_to_roman_string((first_number + second_number),buffer);
 	} /* END of addition operation*/
