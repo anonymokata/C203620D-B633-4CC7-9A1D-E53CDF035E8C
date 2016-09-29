@@ -5,6 +5,8 @@
 #define C 100
 #define D 500
 #define M 1000
+#define Zero 0
+#define negative -1
 
 /*function to return decimal value of the roman digit*/
 int roman_to_decimal_digit_value(char roman_character)
@@ -26,9 +28,9 @@ int roman_to_decimal_digit_value(char roman_character)
 	break;
 	case 'M': decimal_value = M;
 	break;
-	case '\0': decimal_value = 0;
+	case '\0': decimal_value = Zero;
 	break;
-	default: decimal_value = -1;
+	default: decimal_value = negative;
 	}
 	return decimal_value;
 }
