@@ -6,6 +6,8 @@
 #define Nine_hundred 900
 #define C_value 100
 #define Four_hundred 400
+#define L_value 50
+#define Ninty 90 
 
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
@@ -40,7 +42,16 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (Four_hundred);
 			}
 		}/* end of if(decimal_number >=100) */
-
+	else if(decimal_number >=L_value){ // conversion for 50
+			if(decimal_number < (Ninty)){
+				buffer = post_roman_digit_characters('L',decimal_number/L_value,buffer);
+				decimal_number = decimal_number - (decimal_number/L_value) * L_value;
+			}
+			else{
+				buffer = pre_roman_digit_characters('X','C',buffer);
+				decimal_number = decimal_number - (Ninty);
+			}
+		} /*end of if(decimal_number >=50) */
 
 
 
