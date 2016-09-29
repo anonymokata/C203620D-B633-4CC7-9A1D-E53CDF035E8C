@@ -1,4 +1,5 @@
 #include "post_roman_digits.h"
+#include "pre_roman_digits.h"
 #define zero 0
 #define M_value 1000
 #define D_value 500
@@ -22,7 +23,15 @@ or pre_roman_digit_characters depending on the input */
 				buffer = post_roman_digit_characters('D',decimal_number/D_value,buffer);
 				decimal_number = decimal_number - (decimal_number/D_value) * D_value;
 			}
-	}
+	else{
+				buffer = pre_roman_digit_characters('C','M',buffer);
+				decimal_number = decimal_number - (Nine_hundred);
+			}
+	}/*End of 500*/
+
+
+
+
 	}/*End of while loop*/
 
 	*buffer = '\0';

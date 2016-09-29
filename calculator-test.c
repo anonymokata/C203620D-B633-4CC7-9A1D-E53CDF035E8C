@@ -128,6 +128,13 @@ ck_assert_msg(strcmp(decimal_number_to_roman_string(1500,buffer),"MD") == 0,"Ope
 }
 END_TEST
 
+START_TEST(_1900_equals_MCM)
+{
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_number_to_roman_string(1900,buffer),"MCM") == 0,"Operation failed to convert decimal to roman value: 1900");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -152,6 +159,7 @@ int main(void)
     tcase_add_test(tc1_1, _1000_equals_M);
     tcase_add_test(tc1_1, _500_equals_D);
     tcase_add_test(tc1_1, _1500_equals_MD);
+    tcase_add_test(tc1_1, _1900_equals_MCM);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
