@@ -2,6 +2,9 @@
 #line 1 "calculator-test.check"
 #include "single_roman_char_conversion.h"
 #include "roman_string_to_decimal_value.h"
+#include "decimal_value_to_roman_string.h"
+#define size 50
+char buffer[size];
 
 START_TEST(single_roman_char_conversion)
 {
@@ -104,6 +107,14 @@ ck_assert_msg(roman_string_to_decimal_value("XXXC") == 70,"Not a valid roman num
 }
 END_TEST
 
+START_TEST(_1000_equals_M)
+{
+
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_number_to_roman_string(1000,buffer),"M") == 0,"Operation failed to convert decimal to roman value: 1000");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -125,6 +136,7 @@ int main(void)
     tcase_add_test(tc1_1, MMCCCXLV_equals_2345);
     tcase_add_test(tc1_1, zero_equals_zero);
     tcase_add_test(tc1_1, XXXC_equals_70);
+    tcase_add_test(tc1_1, _1000_equals_M);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
