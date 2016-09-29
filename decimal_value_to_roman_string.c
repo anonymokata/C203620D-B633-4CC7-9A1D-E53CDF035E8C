@@ -58,7 +58,7 @@ or pre_roman_digit_characters depending on the input */
 		} /*end of if(decimal_number >=50) */
 	
 	else if(decimal_number >=X_value){ //conversion for 10
-			if(decimal_number < (Forty)
+			if(decimal_number < (Forty)){
 				buffer = post_roman_digit_characters('X',decimal_number/X_value,buffer);
 				decimal_number = decimal_number - (decimal_number/X_value) * X_value;
 			}
