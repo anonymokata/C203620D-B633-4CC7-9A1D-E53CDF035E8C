@@ -220,6 +220,13 @@ ck_assert_msg(strcmp(calculate_roman_numbers("MM","MM","ADD",buffer),"MMMM") == 
 }
 END_TEST
 
+START_TEST(roman_addition_MMCCC_MMCCC_equals_MMMMDC)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("MMCCC","MMCCC","ADD",buffer),"MMMMDC") == 0,"Limit exceeds the maximum limit: 4600 ");
+
+}
+END_TEST
 
 int main(void)
 {
@@ -231,6 +238,7 @@ int main(void)
     suite_add_tcase(s1, tc1_1);
     tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
     tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
+    tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
