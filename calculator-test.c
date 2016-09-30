@@ -245,6 +245,14 @@ ck_assert_msg(strcmp(calculate_roman_numbers("III","III","ADD",buffer),"VI") == 
 }
 END_TEST
 
+START_TEST(roman_subtraction_III_I_equals_II)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("III","I","SUBTRACT",buffer),"II") == 0,"operation failed to subtract two numbers : II ");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -258,6 +266,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
     tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
     tcase_add_test(tc1_1, roman_addition_III_III_equals_VI);
+    tcase_add_test(tc1_1, roman_subtraction_III_I_equals_II);
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
