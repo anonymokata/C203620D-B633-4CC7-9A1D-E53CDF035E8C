@@ -1,5 +1,3 @@
-#include "post_roman_digits.h"
-#include "pre_roman_digits.h"
 #define zero 0
 #define M_VALUE 1000
 #define D_VALUE 500
@@ -14,6 +12,9 @@
 #define NINE 9
 #define FOUR 4
 #define ONE 1
+
+static char* post_roman_digit_characters(char character,int count,char* buffer);
+static char* pre_roman_digit_characters(char character1,char character2,char* buffer);
 
 //storing the post digits
 /*Helper function for decimal_value_to_roman_string*/
