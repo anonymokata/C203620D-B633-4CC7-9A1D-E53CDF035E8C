@@ -204,6 +204,14 @@ ck_assert_msg(strcmp(calculate_roman_numbers("XX","BAD","ADD",buffer),"") == 0,"
 }
 END_TEST
 
+START_TEST(roman_addition_BAD_BAD_equals_NULL)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD","ADD",buffer),"") == 0,"Invalid operation invalid input : BAD BAD ADD ");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -212,6 +220,7 @@ int main(void)
     int nf;
 
     suite_add_tcase(s1, tc1_1);
+    tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
