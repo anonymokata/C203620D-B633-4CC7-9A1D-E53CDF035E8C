@@ -8,7 +8,7 @@
 #define MAX_VALUE 3999
 #define MIN_VALUE -3999
 
-ROMAN_TYPE* calculate_roman_numbers(ROMAN_TYPE first_roman_number, ROMAN_TYPE first_roman_number, ROMAN_OPERATION Add_subtract, ROMAN_TYPE *result)
+ROMAN_TYPE* calculate_roman_numbers(ROMAN_TYPE first_roman_number, ROMAN_TYPE second_roman_number, ROMAN_OPERATION Add_subtract, ROMAN_TYPE *result)
 
 	{
 	/*calculate function reveives the input from test file first_roman number,
