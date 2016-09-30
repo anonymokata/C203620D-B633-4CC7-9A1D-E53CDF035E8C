@@ -15,6 +15,30 @@
 #define FOUR 4
 #define ONE 1
 
+//storing the post digits
+/*Helper function for decimal_value_to_roman_string*/
+char* post_roman_digit_characters(char character,int count,char* buffer)
+{
+	/*this function stores the post digits of the roman character in temproary memory buffer*/
+	static int character_count;
+	for(character_count = 0;character_count < count;character_count++){
+		*buffer = character;
+		buffer++;
+	}
+	return buffer;
+}
+
+char* pre_roman_digit_characters(char character1,char character2,char* buffer)
+{
+/*this function stores the previous digits of the roman character in temproary memory buffer*/
+	*buffer = character1;
+	buffer++;
+	*buffer = character2;
+	buffer++;
+	return buffer;
+}
+
+
 char* decimal_number_to_roman_string(int decimal_number,char* buffer)
 {
 
