@@ -3,6 +3,7 @@
 #include "single_roman_char_conversion.h"
 #include "roman_string_to_decimal_value.h"
 #include "decimal_value_to_roman_string.h"
+# include "calculator.h"
 #define size 50
 char buffer[size];
 
@@ -236,6 +237,14 @@ ck_assert_msg(strcmp(calculate_roman_numbers("0","0","ADD",buffer),"0") == 0,"In
 }
 END_TEST
 
+START_TEST(roman_addition_III_III_equals_VI)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("III","III","ADD",buffer),"VI") == 0,"operation failed to return : VI");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -248,6 +257,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
     tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
     tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
+    tcase_add_test(tc1_1, roman_addition_III_III_equals_VI);
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
