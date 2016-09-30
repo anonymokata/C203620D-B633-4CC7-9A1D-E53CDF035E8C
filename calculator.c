@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
+#include <stdlib.h>
 #include "roman_string_to_decimal_value.h"
 #include "decimal_value_to_roman_string.h"
 #include "calculator_addition.h"

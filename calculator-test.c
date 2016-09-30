@@ -228,6 +228,14 @@ ck_assert_msg(strcmp(calculate_roman_numbers("MMCCC","MMCCC","ADD",buffer),"MMMM
 }
 END_TEST
 
+START_TEST(roman_addition_0_0_equals_0)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("0","0","ADD",buffer),"0") == 0,"Invalid input passing zeros as both input");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -239,6 +247,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
     tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
     tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
+    tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
     tcase_add_test(tc1_1, roman_string_to_decimal);
