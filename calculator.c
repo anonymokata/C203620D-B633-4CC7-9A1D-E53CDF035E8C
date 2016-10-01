@@ -26,11 +26,11 @@ ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE seco
 	//int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
 	
 	ROMAN_TYPE final_answer; // to store the final result
-	ROMAN_TYPE temp_result;
+	
 	switch(Add_Subtract)
 	{
 	case ADD:
-	temp_result = add(first_roman_number,second_roman_number,result);
+	final_answer = add(first_roman_number,second_roman_number,result);
 	break;
 	case SUBTRACT:
 	final_answer = subtract(first_roman_number,second_roman_number,result);
@@ -44,8 +44,8 @@ return final_answer;
 
 ROMAN_TYPE add(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
-	ROMAN_TYPE final_added_answer = NULL;
-if( isRomanNumberValid(first_roman_number) == NEGATIVE && isRomanNumberValid(second_roman_number)== NEGATIVE )
+	ROMAN_TYPE final_added_answer;
+if( isRomanNumberValid(first_roman_number) == NEGATIVE || isRomanNumberValid(second_roman_number)== NEGATIVE )
 	{	
 		return NULL;
 	}
