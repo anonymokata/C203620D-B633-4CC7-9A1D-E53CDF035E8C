@@ -53,7 +53,6 @@ int roman_to_decimal_digit_value(char roman_character)
 
 int roman_string_to_decimal_value(char roman_string[])
 {
-	int roman_to_decimal_digit_value(char roman_character);
 	int roman_string_index = 0;
 	int decimal_number = 0; // value to store the decimal value
 	

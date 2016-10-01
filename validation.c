@@ -11,11 +11,14 @@ int isRomanNumberValid(char roman_value[])
 	while(roman_value[roman_string_pointer])
 	{
 		if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < 0)
-		return NEGATIVE;
-	
+	{
+		 invalid_roman_string = NEGATIVE;
+	}	
 if((strlen(roman_value) -roman_string_pointer) > 2)
 	if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < roman_to_decimal_digit_value(roman_value[roman_string_pointer + 2]))
-	return NEGATIVE;
+	{	
+	invalid_roman_string = NEGATIVE;
 	}
+}
 return invalid_roman_string;
 }

@@ -26,7 +26,9 @@ ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE seco
 	//int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
 	
 	ROMAN_TYPE final_answer; // to store the final result
-	
+	printf("inside calculate_roman_numbers first_roman= %s \n",first_roman_number); 
+	printf("inside calculate_roman_numbers second_roman= %s \n",second_roman_number); 
+	printf("inside calculate_roman_numbers second_roman= %d \n",Add_Subtract); 
 	switch(Add_Subtract)
 	{
 	case ADD:
@@ -45,17 +47,23 @@ return final_answer;
 ROMAN_TYPE add(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 	ROMAN_TYPE final_added_answer;
-if( isRomanNumberValid(first_roman_number) == NEGATIVE || isRomanNumberValid(second_roman_number)== NEGATIVE )
+	printf("inside add first_roman= %s \n",first_roman_number); 
+	printf("inside add second_roman= %s \n",second_roman_number); 
+/*if( isRomanNumberValid(first_roman_number) == NEGATIVE || isRomanNumberValid(second_roman_number)== NEGATIVE )
 	{	
-		return NULL;
+		final_added_answer = NULL;
 	}
 else
-	{
+	{*/
 		int first_number = roman_string_to_decimal_value(first_roman_number); 
+			printf("first_roman_number %d \n",first_number);
 		int second_number = roman_string_to_decimal_value(second_roman_number);
+			printf("second_roman_number %d \n",second_number);
 		int total_value = limitation_check_addition(first_number,second_number);
+			printf("total_value %d \n",total_value);
 		final_added_answer = decimal_number_to_roman_string(total_value,result);
-	}
+			printf("total_value %s \n",final_added_answer);
+	
 return final_added_answer; 	
 }
 /*----------------------------------------*/
