@@ -3,37 +3,41 @@
 #include <stdlib.h>
 #include "roman_string_to_decimal_value.h"
 #include "decimal_value_to_roman_string.h"
+#include "calculator.h"
 #define FAILURE -1
 #define INVALID "-1"
 #define MAX_VALUE 3999
 #define MIN_VALUE -3999
 
+static int limitation_check_addition(int first_number, int second_number);
+static int limitation_check_subtraction(int first_number, int second_number);	
 
-typedef char ROMAN_TYPE; 
-ROMAN_TYPE* calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,char Add_Subtract[], ROMAN_TYPE* result)
+ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_OPERATION Add_Subtract, ROMAN_TYPE result)
 {
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
 	int first_number = roman_string_to_decimal_value(first_roman_number); // calling roman_decimal function to convert first roman number to decimal
 	int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
-	char* final_answer; // to store the final result
-	int limitation_check_addition(int first_number, int second_number);
-   	int limitation_check_subtraction(int first_number, int second_number);	
-	int total_value;	
+	
+	ROMAN_TYPE final_answer; // to store the final result
+
+	
+		
+int total_value;	
 	if (first_number == FAILURE || second_number == FAILURE)	
 	{
 	return INVALID;
 	}
 	
 	
-	if(strcmp(Add_Subtract,"ADD") == 0) // check for the addition operation
+	if(Add_Subtract == ADD) // check for the addition operation
 	{
 		total_value = limitation_check_addition(first_number,second_number); 		
 		final_answer = decimal_number_to_roman_string(total_value,result);
 		return final_answer;
 		
 	}
-	else if (strcmp(Add_Subtract,"SUBTRACT") ==0) // check for the addition operation
+	else if (Add_Subtract == SUBTRACT) // check for the addition operation
 	{
 		total_value = limitation_check_subtraction(first_number,second_number); 		
 		final_answer = decimal_number_to_roman_string(total_value,result);

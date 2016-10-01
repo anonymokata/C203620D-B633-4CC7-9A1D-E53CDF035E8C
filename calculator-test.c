@@ -175,7 +175,7 @@ END_TEST
 START_TEST(roman_addition_M_D_equals_MD)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("M","D","ADD",buffer),"MD") == 0,"Operation failed to add the two roman value to MD");
+ck_assert_msg(strcmp(calculate_roman_numbers("M","D",ADD,buffer),"MD") == 0,"Operation failed to add the two roman value to MD");
 
 }
 END_TEST
@@ -183,7 +183,7 @@ END_TEST
 START_TEST(roman_addition_I_I_equals_II)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("I","I","ADD",buffer),"II") == 0,"Operation failed to add the two roman value to II");
+ck_assert_msg(strcmp(calculate_roman_numbers("I","I",ADD,buffer),"II") == 0,"Operation failed to add the two roman value to II");
 
 }
 END_TEST
@@ -191,7 +191,7 @@ END_TEST
 START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL","ADD",buffer),"") == 0,"Invalid operation bad input : BAD XXLL ADD");
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL",ADD,buffer),"") == 0,"Invalid operation bad input : BAD XXLL ADD");
 
 }
 END_TEST
@@ -199,7 +199,7 @@ END_TEST
 START_TEST(roman_addition_XX_BAD_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("XX","BAD","ADD",buffer),"") == 0,"Invalid operation bad second input : XX BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers("XX","BAD",ADD,buffer),"") == 0,"Invalid operation bad second input : XX BAD ADD ");
 
 }
 END_TEST
@@ -207,7 +207,7 @@ END_TEST
 START_TEST(roman_addition_BAD_BAD_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD","ADD",buffer),"") == 0,"Invalid operation invalid input : BAD BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD",ADD,buffer),"") == 0,"Invalid operation invalid input : BAD BAD ADD ");
 
 }
 END_TEST
@@ -215,7 +215,7 @@ END_TEST
 START_TEST(roman_addition_MM_MM_equals_MMMM)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("MM","MM","ADD",buffer),"MMMM") == 0,"Limit exceeds the maximum limit: 4000 ");
+ck_assert_msg(strcmp(calculate_roman_numbers("MM","MM",ADD,buffer),"MMMM") == 0,"Limit exceeds the maximum limit: 4000 ");
 
 }
 END_TEST
@@ -223,7 +223,7 @@ END_TEST
 START_TEST(roman_addition_MMCCC_MMCCC_equals_MMMMDC)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("MMCCC","MMCCC","ADD",buffer),"MMMMDC") == 0,"Limit exceeds the maximum limit: 4600 ");
+ck_assert_msg(strcmp(calculate_roman_numbers("MMCCC","MMCCC",ADD,buffer),"MMMMDC") == 0,"Limit exceeds the maximum limit: 4600 ");
 
 }
 END_TEST
@@ -231,7 +231,7 @@ END_TEST
 START_TEST(roman_addition_0_0_equals_0)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("0","0","ADD",buffer),"0") == 0,"Invalid input passing zeros as both input");
+ck_assert_msg(strcmp(calculate_roman_numbers("0","0",ADD,buffer),"0") == 0,"Invalid input passing zeros as both input");
 
 }
 END_TEST
@@ -239,7 +239,7 @@ END_TEST
 START_TEST(roman_addition_III_III_equals_VI)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("III","III","ADD",buffer),"VI") == 0,"operation failed to return : VI");
+ck_assert_msg(strcmp(calculate_roman_numbers("III","III",ADD,buffer),"VI") == 0,"operation failed to return : VI");
 
 }
 END_TEST
@@ -247,7 +247,7 @@ END_TEST
 START_TEST(roman_subtraction_III_I_equals_II)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("III","I","SUBTRACT",buffer),"II") == 0,"operation failed to subtract two numbers : II ");
+ck_assert_msg(strcmp(calculate_roman_numbers("III","I",SUBTRACT,buffer),"II") == 0,"operation failed to subtract two numbers : II ");
 
 }
 END_TEST
