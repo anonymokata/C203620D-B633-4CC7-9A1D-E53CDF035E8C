@@ -8,33 +8,37 @@
 #define MAX_VALUE 3999
 #define MIN_VALUE -3999
 
-ROMAN_TYPE* calculate_roman_numbers(ROMAN_TYPE first_roman_number, ROMAN_TYPE second_roman_number,ROMAN_OPERATION Add_Subtract, ROMAN_TYPE *result)
 
-	{
+typedef char ROMAN_TYPE; 
+ROMAN_TYPE* calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,char Add_Subtract[], ROMAN_TYPE* result)
+{
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
 	int first_number = roman_string_to_decimal_value(first_roman_number); // calling roman_decimal function to convert first roman number to decimal
 	int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
 	char* final_answer; // to store the final result
-		
+	int limitation_check_addition(int first_number, int second_number);
+   	int limitation_check_subtraction(int first_number, int second_number);	
+	int total_value;	
 	if (first_number == FAILURE || second_number == FAILURE)	
 	{
 	return INVALID;
 	}
-	int total_value;
-	int limitation_check_addition(int first_number, int second_number);
-	int limitation_check_subtraction(int first_number, int second_number);	
-	if(Add_Subtract == "ADD") // check for the addition operation
+	
+	
+	if(strcmp(Add_Subtract,"ADD") == 0) // check for the addition operation
 	{
-		total_value = limitation_check_addition(int first_number, int second_number); 		
-		final_answer = decimal_number_to_roman_string(total_value,result)
+		total_value = limitation_check_addition(first_number,second_number); 		
+		final_answer = decimal_number_to_roman_string(total_value,result);
 		return final_answer;
+		
 	}
-	else if (Add_Subtract == "SUBTRACT") // check for the addition operation
+	else if (strcmp(Add_Subtract,"SUBTRACT") ==0) // check for the addition operation
 	{
-		total_value = limitation_check_subtraction(int first_number, int second_number); 		
-		final_answer = decimal_number_to_roman_string(total_value,result)
+		total_value = limitation_check_subtraction(first_number,second_number); 		
+		final_answer = decimal_number_to_roman_string(total_value,result);
 		return final_answer;
+		
 	}
 	else
 	{
@@ -44,33 +48,32 @@ ROMAN_TYPE* calculate_roman_numbers(ROMAN_TYPE first_roman_number, ROMAN_TYPE se
 
 }
 
-int limitation_check_addition(int first_number, int second_number){
+int limitation_check_addition(int first_number1, int second_number2)
+{
 
-	if((first_number + second_number) > MAX_VALUE)
+	if((first_number1 + second_number2) > MAX_VALUE)
 		{
-			return INVALID;
+			return (int)NULL;
 		}
 		else
 			
-			  return (first_number + second_number);
+			  return (first_number1 + second_number2);
 	 /* END of addition operation*/
 
 
 }
 
-int limitation_check_addition(int first_number, int second_number){
+int limitation_check_subtraction(int first_numbera, int second_numberb)
+{
 
-	if((first_number - second_number) > MAX_VALUE || (first_number - second_number) < MIN_VALUE)
+	if((first_numbera - second_numberb) > MAX_VALUE || (first_numbera - second_numberb) < MIN_VALUE)
 		{
-			return INVALID;
+			return (int)NULL;
 		}
 		else
 			
-			return (abs(first_number - second_number);
+			return (abs(first_numbera - second_numberb));
 		/*Note: As there are no negative numbers in roman
 		  onsidering the absolute value of the negative number*/
 }
-
-
-
 
