@@ -4,6 +4,7 @@
 #include "roman_string_to_decimal_value.h"
 #include "decimal_value_to_roman_string.h"
 #include "calculator.h"
+#include "validation.h"
 #define MAX_VALUE 3999
 #define MIN_VALUE -3999
 #define NEGATIVE -1
@@ -24,8 +25,8 @@ ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE seco
 	//int first_number = roman_string_to_decimal_value(first_roman_number); // calling roman_decimal function to convert first roman number to decimal
 	//int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
 	
-	ROMAN_TYPE final_answer, temp_result; // to store the final result
-
+	ROMAN_TYPE final_answer; // to store the final result
+	ROMAN_TYPE temp_result;
 	switch(Add_Subtract)
 	{
 	case ADD:
@@ -44,7 +45,7 @@ return final_answer;
 ROMAN_TYPE add(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 	ROMAN_TYPE final_added_answer = NULL;
-if((isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)))
+if( isRomanNumberValid(first_roman_number) == NEGATIVE && isRomanNumberValid(second_roman_number)== NEGATIVE )
 	{	
 		return NULL;
 	}
@@ -62,7 +63,7 @@ int limitation_check_addition(int first_number1, int second_number2)
 {
 if((first_number1 + second_number2) > MAX_VALUE)
 	{
-		return NULL;
+		return (int)NULL;
 	}
 	else
 		  return (first_number1 + second_number2);
@@ -72,7 +73,7 @@ if((first_number1 + second_number2) > MAX_VALUE)
 ROMAN_TYPE subtract(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 	ROMAN_TYPE final_subtracted_answer = NULL;
-if((isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)))
+if(isRomanNumberValid(first_roman_number) == NEGATIVE && isRomanNumberValid(second_roman_number) == NEGATIVE)
 {	
 	return NULL;
 }

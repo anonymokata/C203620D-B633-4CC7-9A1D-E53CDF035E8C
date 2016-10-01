@@ -15,7 +15,7 @@
 #define NEGATIVE -1
 
 
-//static int isRomanNumberValid(Roman roman_value);
+
 //static int roman_to_decimal_digit_value(char roman_character);
 //static int limitation_check_subtraction(int first_number_1, int second_number_2);
 //static int limitation_check_addition(int first_number1, int second_number2);
@@ -75,21 +75,7 @@ int roman_string_to_decimal_value(char roman_string[])
 }
 
 /*-----------------------------------*/
-int isRomanNumberValid(char roman_value[])
-{
-	int roman_string_pointer = 0;
-if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < 0)
-	{
-            return NEGATIVE;
-	}
-if((strlen(roman_value) -roman_string_pointer) > 2)
-	{
-		if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < roman_to_decimal_digit_value(roman_value[roman_string_pointer + 2]))
-		{
-	                return NEGATIVE;
-	        }
-         }
-}
+
 
 
 
