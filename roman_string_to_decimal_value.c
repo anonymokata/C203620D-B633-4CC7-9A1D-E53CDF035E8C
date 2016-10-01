@@ -1,10 +1,9 @@
-/*
-
-
-*/
-
 # include <stdio.h>
-# include <string.h>
+#include <string.h>
+#include <stdlib.h>
+#include "calculator.h"
+#include "decimal_value_to_roman_string.h"
+#include "roman_string_to_decimal_value.h"
 #define I 1
 #define V 5
 #define X 10
@@ -14,6 +13,15 @@
 #define M 1000
 #define Zero 0
 #define NEGATIVE -1
+#define MAX_VALUE 3999
+#define MIN_VALUE -3999
+typedef char* Roman;
+//static int isRomanNumberValid(Roman roman_value);
+//static int roman_to_decimal_digit_value(char roman_character);
+//static int limitation_check_subtraction(int first_number_1, int second_number_2);
+//static int limitation_check_addition(int first_number1, int second_number2);
+//static Roman add(Roman first_roman_number,Roman second_roman_number,Roman result);
+//static Roman subtract(Roman first_roman_number,Roman second_roman_number,Roman result);
 
 /*function to return decimal value of the roman digit*/
 int roman_to_decimal_digit_value(char roman_character)
@@ -54,15 +62,7 @@ int roman_string_to_decimal_value(char roman_string[])
 	{
 		/*if condition check the order of the string. If first digit is greater than the second digit it add the value else 
 		it subtracts the value  */
-	if(roman_to_decimal_digit_value(roman_string[roman_string_index]) < 0){
-             return NEGATIVE;
-         }
-	if((strlen(roman_string) -roman_string_index) > 2){
-             if(roman_to_decimal_digit_value(roman_string[roman_string_index]) < roman_to_decimal_digit_value(roman_string[roman_string_index + 2])){
-                 
-                 return NEGATIVE;
-             }
-         }
+	
 	if(roman_to_decimal_digit_value(roman_string[roman_string_index]) >= roman_to_decimal_digit_value(roman_string[roman_string_index+1])) 
 			decimal_number = decimal_number + roman_to_decimal_digit_value(roman_string[roman_string_index]);
 		else{
@@ -74,3 +74,74 @@ int roman_string_to_decimal_value(char roman_string[])
 	}
 	return decimal_number;
 }
+
+/*-----------------------------------*/
+int isRomanNumberValid(Roman roman_value)
+{
+	int roman_string_pointer = 0;
+if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < 0)
+	{
+            return NEGATIVE;
+	}
+if((strlen(roman_value) -roman_string_pointer) > 2)
+	{
+		if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < roman_to_decimal_digit_value(roman_value[roman_string_pointer + 2]))
+		{
+	                return NEGATIVE;
+	        }
+         }
+}
+/*-----------------------------------------*/
+Roman add(Roman first_roman_number,Roman second_roman_number,Roman result)
+{
+if( isRomanNumberValid(first_roman_number) == NEGATIVE || isRomanNumberValid(second_roman_number) == NEGATIVE || (isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)) == NEGATIVE)
+	{	
+		return NULL;
+	}
+else
+	{
+	int first_number = roman_string_to_decimal_value(first_roman_number); 
+	int second_number = roman_string_to_decimal_value(second_roman_number);
+	int total_value = limitation_check_addition(first_number,second_number);
+	Roman final_answer = decimal_number_to_roman_string(total_value,result);
+	}
+return final_answer; 	
+}
+/*----------------------------------------*/
+int limitation_check_addition(int first_number1, int second_number2)
+{
+if((first_number1 + second_number2) > MAX_VALUE)
+	{
+		return NULL;
+	}
+	else
+		  return (first_number1 + second_number2);
+}
+
+
+Roman subtract(Roman first_roman_number,Roman second_roman_number,Roman result)
+{
+if(isRomanNumberValid(first_roman_number) == NEGATIVE || isRomanNumberValid(second_roman_number) == NEGATIVE || (isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)) == NEGATIVE)
+	return NULL;
+else
+	int first_number = roman_string_to_decimal_value(first_roman_number); 
+	int second_number = roman_string_to_decimal_value(second_roman_number);
+	int total_value = limitation_check_subtraction(first_number,second_number);
+	Roman final_answer = decimal_number_to_roman_string(total_value,result);
+
+return final_answer; 
+/*------------------------------------*/
+int limitation_check_subtraction(int first_number_1, int second_number_2)
+{
+	if((first_number_1 - second_number_2) > MAX_VALUE || (first_number_1 - second_number_2) < MIN_VALUE)
+		{
+			return (int)NULL;
+		}
+		else
+			
+			return (abs(first_number_1 - second_number_2));
+}
+
+
+
+

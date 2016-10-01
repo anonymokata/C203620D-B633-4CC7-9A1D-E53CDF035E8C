@@ -4,26 +4,37 @@
 #include "roman_string_to_decimal_value.h"
 #include "decimal_value_to_roman_string.h"
 #include "calculator.h"
-#define FAILURE -1
-#define INVALID "-1"
-#define MAX_VALUE 3999
-#define MIN_VALUE -3999
 
-static int limitation_check_addition(int first_number, int second_number);
-static int limitation_check_subtraction(int first_number, int second_number);	
+
+//static int limitation_check_addition(int first_number, int second_number);
+//static int limitation_check_subtraction(int first_number, int second_number);	
+
+static ROMAN_TYPE add(ROMAN_TYPE first_number, ROMAN_TYPE second_number);
+static ROMAN_TYPE subtract(ROMAN_TYPE first_number, ROMAN_TYPE second_number);
 
 ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_OPERATION Add_Subtract, ROMAN_TYPE result)
 {
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
-	int first_number = roman_string_to_decimal_value(first_roman_number); // calling roman_decimal function to convert first roman number to decimal
-	int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
+	//int first_number = roman_string_to_decimal_value(first_roman_number); // calling roman_decimal function to convert first roman number to decimal
+	//int second_number = roman_string_to_decimal_value(second_roman_number); // calling roman_decimal function to convert second roman number to decimal
 	
 	ROMAN_TYPE final_answer; // to store the final result
 
-	
-		
-int total_value;	
+	switch()
+	{
+	case ADD:
+	final_answer = add(first_number,second_number,result);
+	break;
+	case SUBTRACT:
+	final_answer = subtract(first_number,second_number,result);
+	break;
+	default:
+	   return NULL;	
+	}
+return final_answer;
+}		
+/*int total_value;	
 	if (first_number == FAILURE || second_number == FAILURE)	
 	{
 	return INVALID;
@@ -62,7 +73,7 @@ int limitation_check_addition(int first_number1, int second_number2)
 		else
 			
 			  return (first_number1 + second_number2);
-	 /* END of addition operation*/
+	 
 
 
 }
@@ -77,7 +88,6 @@ int limitation_check_subtraction(int first_numbera, int second_numberb)
 		else
 			
 			return (abs(first_numbera - second_numberb));
-		/*Note: As there are no negative numbers in roman
-		  onsidering the absolute value of the negative number*/
-}
+		
+}*/
 
