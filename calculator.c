@@ -44,7 +44,7 @@ return final_answer;
 ROMAN_TYPE add(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 	ROMAN_TYPE final_added_answer = NULL;
-if((isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)) == NEGATIVE)
+if((isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)))
 	{	
 		return NULL;
 	}
@@ -72,17 +72,17 @@ if((first_number1 + second_number2) > MAX_VALUE)
 ROMAN_TYPE subtract(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 	ROMAN_TYPE final_subtracted_answer = NULL;
-if((isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)) == NEGATIVE)
+if((isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number)))
 {	
 	return NULL;
 }
 else
-	
+	{
 		int first_number = roman_string_to_decimal_value(first_roman_number); 
 		int second_number = roman_string_to_decimal_value(second_roman_number);
 		int total_value = limitation_check_subtraction(first_number,second_number);
 		final_subtracted_answer = decimal_number_to_roman_string(total_value,result);
-	
+	}
 return final_subtracted_answer; 
 }
 
