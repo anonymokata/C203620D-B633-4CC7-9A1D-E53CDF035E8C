@@ -216,7 +216,7 @@ ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL",ADD,buffer),"") == 0,"
 
 }
 END_TEST
-/*
+
 START_TEST(roman_addition_XX_BAD_equals_NULL)
 {
 
@@ -232,7 +232,7 @@ ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD",ADD,buffer),"") == 0,"I
 
 }
 END_TEST
-
+/*
 START_TEST(roman_addition_MM_MM_equals_MMMM)
 {
 
@@ -317,7 +317,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_limit_sum_4500_equals_INVALID);
     tcase_add_test(tc1_1, roman_limit_subtract_3700_equals_VALID);
     tcase_add_test(tc1_1, roman_limit_subtract_4900_equals_INVALID);
-  //  tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
+    tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
   // tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
   //  tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
   //  tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
@@ -350,7 +350,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_M_D_equals_MD);
     tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
     tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
-  //  tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
+    tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
