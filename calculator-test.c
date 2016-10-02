@@ -256,7 +256,7 @@ ck_assert_msg(strcmp(calculate_roman_numbers("0","0",ADD,buffer),"INVALID") == 0
 
 }
 END_TEST
-/*
+
 START_TEST(roman_addition_III_III_equals_VI)
 {
 
@@ -264,7 +264,7 @@ ck_assert_msg(strcmp(calculate_roman_numbers("III","III",ADD,buffer),"VI") == 0,
 
 }
 END_TEST
-
+/*
 START_TEST(roman_subtraction_III_I_equals_II)
 {
 
