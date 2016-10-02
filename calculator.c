@@ -21,50 +21,38 @@ ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE seco
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
 	
-	ROMAN_TYPE final_answer; // to store the final result
-	printf("inside calculate_roman_numbers first_roman= %s \n",first_roman_number); 
-	printf("inside calculate_roman_numbers second_roman= %s \n",second_roman_number); 
-	printf("inside calculate_roman_numbers second_roman= %d \n",Add_Subtract); 
+	
 	switch(Add_Subtract)
 	{
 	case ADD:
-	final_answer = add(first_roman_number,second_roman_number,result);
+	add(first_roman_number,second_roman_number,result);
 	break;
 	case SUBTRACT:
-	final_answer = subtract(first_roman_number,second_roman_number,result);
+	subtract(first_roman_number,second_roman_number,result);
 	break;
 	default:
 	   return NULL;	
 	}
-return final_answer;
+return result;
 }		
 /*-----------------------------------------*/
 
 ROMAN_TYPE add(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
-	ROMAN_TYPE final_added_answer;
-	printf("inside add first_roman= %s \n",first_roman_number); 
-	printf("inside add second_roman= %s \n",second_roman_number); 
-	printf("roman valid first=  %d \n",isRomanNumberValid(first_roman_number));
-	printf("roman valid second=  %d \n",isRomanNumberValid(second_roman_number));
+	
 if( isRomanNumberValid(first_roman_number) != 0 && isRomanNumberValid(second_roman_number) != 0 )
 	{	
-	//printf("return of roman_valid first_roman_numner %d \n",isRomanNumberValid(first_roman_number));
-	//printf("return of roman_valid second_roman_numner %d \n",isRomanNumberValid(second_roman_number));		
+		
 		int first_number = roman_string_to_decimal_value(first_roman_number); 
-			printf("first_roman_number %d \n",first_number);
 		int second_number = roman_string_to_decimal_value(second_roman_number);
-			printf("second_roman_number %d \n",second_number);
 		int total_value = limitation_check_addition(first_number,second_number);
-			printf("total_value %d \n",total_value);
-		final_added_answer = decimal_number_to_roman_string(total_value,result);
-			printf("total_value %s \n",final_added_answer);
-		return final_added_answer;
+		decimal_number_to_roman_string(total_value,result);
+		return result;
 	}	
 	
 else
 	{
-		return final_added_answer = "INVALI";
+		return "INVALID";
 	
 	}
  	

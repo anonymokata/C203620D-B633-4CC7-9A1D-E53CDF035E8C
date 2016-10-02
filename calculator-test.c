@@ -269,6 +269,38 @@ ck_assert_msg(strcmp(calculate_roman_numbers("III","I",SUBTRACT,buffer),"II") ==
 }
 END_TEST
 */
+START_TEST(roman_limit_sum_3998_equals_TRUE)
+{
+
+ck_assert_msg(strcmp(is_Limit_Of_Add_Is_Not_Exceeded(3998),"TRUE") == 0,"input number is with in the limit : 3998");
+
+}
+END_TEST
+
+START_TEST(roman_limit_sum_4500_equals_FALSE)
+{
+
+ck_assert_msg(strcmp(is_Limit_Of_Add_Is_Not_Exceeded(4500),"FALSE") == 0,"input number is out of limit : 4500");
+
+}
+END_TEST
+
+START_TEST(roman_limit_subtract_3700_equals_TRUE)
+{
+
+ck_assert_msg(strcmp(is_Limit_Of_Subtract_Is_Not_Exceeded(3700),"TRUE") == 0,"input number is out of limit : 4500");
+
+}
+END_TEST
+
+START_TEST(roman_limit_subtract_4900_equals_FALSE)
+{
+
+ck_assert_msg(strcmp(is_Limit_Of_Subtract_Is_Not_Exceeded(4900),"FALSE") == 0,"input number is out of limit : 4500");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -277,6 +309,10 @@ int main(void)
     int nf;
 
     suite_add_tcase(s1, tc1_1);
+    tcase_add_test(tc1_1, roman_limit_sum_3998_equals_TRUE);
+    tcase_add_test(tc1_1, roman_limit_sum_4500_equals_FALSE);
+    tcase_add_test(tc1_1, roman_limit_subtract_3700_equals_TRUE);
+    tcase_add_test(tc1_1, roman_limit_subtract_4900_equals_FALSE);
   //  tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
   // tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
   //  tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
