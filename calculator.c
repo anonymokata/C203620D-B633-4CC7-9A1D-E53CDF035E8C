@@ -48,6 +48,10 @@ if( isRomanNumberValid(first_roman_number) != 0 && isRomanNumberValid(second_rom
 						
 			roman_added_value = decimal_number_to_roman_string((first_number + second_number),result);
 		}
+		else 
+		{
+			roman_added_value =  "INVALID";
+		}
 	}	
 	
 else
@@ -70,6 +74,10 @@ if(isRomanNumberValid(first_roman_number) != 0  && isRomanNumberValid(second_rom
 		{
 			roman_subtracted_value= decimal_number_to_roman_string(abs(first_number - second_number),result);
 	
+		}
+		else 
+		{
+			roman_subtracted_value =  "INVALID";
 		}		
 	}
 else

@@ -232,15 +232,15 @@ ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD",ADD,buffer),"") == 0,"I
 
 }
 END_TEST
-/*
+
 START_TEST(roman_addition_MM_MM_equals_MMMM)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("MM","MM",ADD,buffer),"MMMM") == 0,"Limit exceeds the maximum limit: 4000 ");
+ck_assert_msg(strcmp(calculate_roman_numbers("MM","MM",ADD,buffer),"INVALID") == 0,"Limit exceeds the maximum limit: 4000 ");
 
 }
 END_TEST
-
+/*
 START_TEST(roman_addition_MMCCC_MMCCC_equals_MMMMDC)
 {
 
@@ -318,7 +318,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_limit_subtract_3700_equals_VALID);
     tcase_add_test(tc1_1, roman_limit_subtract_4900_equals_INVALID);
     tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
-  // tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
+    tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
   //  tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
   //  tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
   //  tcase_add_test(tc1_1, roman_addition_III_III_equals_VI);
