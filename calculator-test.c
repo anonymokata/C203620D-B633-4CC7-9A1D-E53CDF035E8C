@@ -188,6 +188,14 @@ ck_assert_msg(isRomanNumberValid("A") == -1,"A is not a valid roman character");
 
 }
 END_TEST
+
+START_TEST(valid_roman_character_M_equals_1000)
+{
+
+ck_assert_msg(isRomanNumberValid("M") == 1,"M is a valid roman character");
+
+}
+END_TEST
 /*
 START_TEST(roman_addition_I_I_equals_II)
 {
@@ -275,6 +283,7 @@ int main(void)
   //  tcase_add_test(tc1_1, roman_addition_0_0_equals_0);
   //  tcase_add_test(tc1_1, roman_addition_III_III_equals_VI);
   //  tcase_add_test(tc1_1, roman_subtraction_III_I_equals_II);
+    tcase_add_test(tc1_1, valid_roman_character_M_equals_1000);
     tcase_add_test(tc1_1, Invalid_roman_character_A_equals_NULL);
     tcase_add_test(tc1_1, single_roman_char_conversion);
     tcase_add_test(tc1_1, invalid_roman_digit);
