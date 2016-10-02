@@ -5,6 +5,8 @@
 #include "decimal_value_to_roman_string.h"
 # include "calculator.h"
 #include "validation.h"
+#define INVALID 0
+#define VALID 1
 
 #define size 50
 char buffer[size];
@@ -194,11 +196,11 @@ END_TEST
 START_TEST(valid_roman_character_M_equals_1000)
 {
 
-ck_assert_msg(isRomanNumberValid("M") == 1,"M is a valid roman character");
+ck_assert_msg(isRomanNumberValid("M") == VALID,"M is a valid roman character");
 
 }
 END_TEST
-/*
+
 START_TEST(roman_addition_I_I_equals_II)
 {
 
@@ -206,7 +208,7 @@ ck_assert_msg(strcmp(calculate_roman_numbers("I","I",ADD,buffer),"II") == 0,"Ope
 
 }
 END_TEST
-
+/*
 START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
 
@@ -271,18 +273,18 @@ ck_assert_msg(strcmp(calculate_roman_numbers("III","I",SUBTRACT,buffer),"II") ==
 }
 END_TEST
 */
-/*START_TEST(roman_limit_sum_3_equals_TRUE)
+START_TEST(roman_limit_sum_3_equals_VALID)
 {
 
-ck_assert_msg(strcmp(is_Limit_Of_Add_Is_Not_Exceeded(3),"TRUE") == 0,"input number is with in the limit : 3 = %s",is_Limit_Of_Add_Is_Not_Exceeded(3998));
+ck_assert_msg(is_Limit_Of_Add_Is_Not_Exceeded(3) == VALID,"input number is with in the limit : 3");
 
 }
-END_TEST*/
+END_TEST
 
-/*START_TEST(roman_limit_sum_4500_equals_INVALID)
+START_TEST(roman_limit_sum_4500_equals_INVALID)
 {
 
-ck_assert_msg(strcmp(is_Limit_Of_Add_Is_Not_Exceeded(4500),"INVALID") == 0,"input number is out of limit : 4500");
+ck_assert_msg(is_Limit_Of_Add_Is_Not_Exceeded(4500) == INVALID,"input number is out of limit : 4500");
 
 }
 END_TEST
@@ -290,7 +292,7 @@ END_TEST
 START_TEST(roman_limit_subtract_3700_equals_VALID)
 {
 
-ck_assert_msg(strcmp(is_Limit_Of_Subtract_Is_Not_Exceeded(3700),"VALID") == 0,"input number is in limit : 3700");
+ck_assert_msg(is_Limit_Of_Subtract_Is_Not_Exceeded(3700) == VALID,"input number is in limit : 3700");
 
 }
 END_TEST
@@ -298,10 +300,10 @@ END_TEST
 START_TEST(roman_limit_subtract_4900_equals_INVALID)
 {
 
-ck_assert_msg(strcmp(is_Limit_Of_Subtract_Is_Not_Exceeded(4900),"INVALID") == 0,"input number is out of limit : 4900");
+ck_assert_msg(is_Limit_Of_Subtract_Is_Not_Exceeded(4900) == INVALID,"input number is out of limit : 4900");
 
 }
-END_TEST*/
+END_TEST
 
 int main(void)
 {
@@ -311,10 +313,10 @@ int main(void)
     int nf;
 
     suite_add_tcase(s1, tc1_1);
-    //tcase_add_test(tc1_1, roman_limit_sum_3_equals_TRUE);
-    //tcase_add_test(tc1_1, roman_limit_sum_4500_equals_INVALID);
-    //tcase_add_test(tc1_1, roman_limit_subtract_3700_equals_VALID);
-    //tcase_add_test(tc1_1, roman_limit_subtract_4900_equals_INVALID);
+    tcase_add_test(tc1_1, roman_limit_sum_3_equals_VALID);
+    tcase_add_test(tc1_1, roman_limit_sum_4500_equals_INVALID);
+    tcase_add_test(tc1_1, roman_limit_subtract_3700_equals_VALID);
+    tcase_add_test(tc1_1, roman_limit_subtract_4900_equals_INVALID);
   //  tcase_add_test(tc1_1, roman_addition_BAD_BAD_equals_NULL);
   // tcase_add_test(tc1_1, roman_addition_MM_MM_equals_MMMM);
   //  tcase_add_test(tc1_1, roman_addition_MMCCC_MMCCC_equals_MMMMDC);
@@ -346,7 +348,7 @@ int main(void)
     tcase_add_test(tc1_1, _4_equals_IV);
     tcase_add_test(tc1_1, _2_equals_II);
     tcase_add_test(tc1_1, roman_addition_M_D_equals_MD);
-  //  tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
+    tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
   //  tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
   //  tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
     
