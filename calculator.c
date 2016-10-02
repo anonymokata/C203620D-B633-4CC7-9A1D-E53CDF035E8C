@@ -13,8 +13,6 @@
 
 static ROMAN_TYPE add(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result);
 static ROMAN_TYPE subtract(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_TYPE result);
-//static int limitation_check_subtraction(int first_number_1, int second_number_2);
-//static int limitation_check_addition(int first_number1, int second_number2);
 
 ROMAN_TYPE calculate_roman_numbers(ROMAN_TYPE first_roman_number,ROMAN_TYPE second_roman_number,ROMAN_OPERATION Add_Subtract, ROMAN_TYPE result)
 {
@@ -45,11 +43,6 @@ if( isRomanNumberValid(first_roman_number) != 0 && isRomanNumberValid(second_rom
 		
 		int first_number = roman_string_to_decimal_value(first_roman_number); 
 		int second_number = roman_string_to_decimal_value(second_roman_number);
-		//int total_value = limitation_check_addition(first_number,second_number);
-		//printf("total sum = %d \n",(first_number + second_number));
-		//printf("linit add = %s\n",is_Limit_Of_Add_Is_Not_Exceeded(first_number + second_number));
-		//printf("value of is_Limit_Of_Add_Is_Not_Exceeded(first_number + second_number) = %d \n",is_Limit_Of_Add_Is_Not_Exceeded(first_number + second_number));
-		//if(is_Limit_Of_Add_Is_Not_Exceeded(first_number + second_number) == TRUE)
 		if(is_Limit_Of_Add_Is_Not_Exceeded(first_number + second_number) == TRUE)
 		{	
 						
@@ -73,10 +66,11 @@ if(isRomanNumberValid(first_roman_number) != 0  && isRomanNumberValid(second_rom
 	{
 		int first_number = roman_string_to_decimal_value(first_roman_number); 
 		int second_number = roman_string_to_decimal_value(second_roman_number);
-		int total_value = limitation_check_subtraction(first_number,second_number);
-		//if(is_Limit_Of_Subtract_Is_Not_Exceeded(abs(first_number - second_number)) == TRUE)
-		roman_subtracted_value= decimal_number_to_roman_string(total_value,result);	
-		
+		if(is_Limit_Of_Subtract_Is_Not_Exceeded(abs(first_number - second_number)) == TRUE)
+		{
+			roman_subtracted_value= decimal_number_to_roman_string(abs(first_number - second_number),result);
+	
+		}		
 	}
 else
 	{		
