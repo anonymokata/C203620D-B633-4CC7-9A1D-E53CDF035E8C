@@ -11,9 +11,8 @@
 #define C 100
 #define D 500
 #define M 1000
-#define Zero 0
 #define NEGATIVE -1
-
+#define INVALID 0
 
 
 //static int roman_to_decimal_digit_value(char roman_character);
@@ -42,7 +41,7 @@ int roman_to_decimal_digit_value(char roman_character)
 	break;
 	case 'M': decimal_value = M;
 	break;
-	case '\0': decimal_value = Zero;
+	case '\0': decimal_value = 0;
 	break;
 	default: decimal_value = NEGATIVE;
 	}
@@ -66,8 +65,8 @@ int roman_string_to_decimal_value(char roman_string[])
 		else{
 			decimal_number = decimal_number+ (roman_to_decimal_digit_value(roman_string[roman_string_index+1]) - roman_to_decimal_digit_value(roman_string[roman_string_index]));
 			roman_string_index++;
-			
 		}
+			
 		roman_string_index++;
 	}
 	return decimal_number;

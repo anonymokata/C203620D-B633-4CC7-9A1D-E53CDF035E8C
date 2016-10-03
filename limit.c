@@ -10,7 +10,7 @@
 /*------------------------------------*/
 int is_Limit_Of_Subtract_Is_Not_Exceeded(int total_subtracted_value)
 {
-	if(total_subtracted_value > MAX_VALUE || total_subtracted_value < MIN_VALUE)
+	if(total_subtracted_value > MAX_VALUE || total_subtracted_value < MIN_VALUE || total_subtracted_value == INVALID)
 		{
 			return INVALID;
 		}

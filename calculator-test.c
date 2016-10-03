@@ -52,7 +52,7 @@ END_TEST
 START_TEST(invalid_roman_string)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("DM") == 1500,"wrong format to pass the roman value DM");
+ck_assert_msg(roman_string_to_decimal_value("DM") == INVALID,"wrong format to pass the roman value DM");
 }
 END_TEST
 
@@ -87,7 +87,7 @@ END_TEST
 START_TEST(invalid_roman_string_1)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("XXC") == 80,"invalid roman string XXC");
+ck_assert_msg(roman_string_to_decimal_value("XXC") == INVALID,"invalid roman string XXC %d ",roman_string_to_decimal_value("XXC"));
 }
 END_TEST
 
@@ -101,14 +101,14 @@ END_TEST
 START_TEST(zero_equals_zero)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("0") == 0,"Invalid Operation passed zero value");
+ck_assert_msg(roman_string_to_decimal_value("0") == INVALID,"Invalid Operation passed zero value");
 }
 END_TEST
 
 START_TEST(XXXC_equals_70)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("XXXC") == 70,"Not a valid roman number := XXXC");
+ck_assert_msg(roman_string_to_decimal_value("XXXC") == INVALID,"Not a valid roman number := XXXC");
 }
 END_TEST
 
@@ -188,7 +188,7 @@ END_TEST
 START_TEST(Invalid_roman_character_A_equals_NULL)
 {
 
-ck_assert_msg(isRomanNumberValid("A") == -1,"A is not a valid roman character");
+ck_assert_msg(isRomanNumberValid("A") == INVALID,"A is not a valid roman character");
 
 }
 END_TEST
@@ -212,7 +212,7 @@ END_TEST
 START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL",ADD,buffer),"") == 0,"Invalid operation bad input : BAD XXLL ADD");
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","XXLL",ADD,buffer),"INVALID") == 0,"Invalid operation bad input : BAD XXLL ADD");
 
 }
 END_TEST
@@ -220,7 +220,7 @@ END_TEST
 START_TEST(roman_addition_XX_BAD_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("XX","BAD",ADD,buffer),"") == 0,"Invalid operation bad second input : XX BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers("XX","BAD",ADD,buffer),"INVALID") == 0,"Invalid operation bad second input : XX BAD ADD ");
 
 }
 END_TEST
@@ -228,7 +228,7 @@ END_TEST
 START_TEST(roman_addition_BAD_BAD_equals_NULL)
 {
 
-ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD",ADD,buffer),"") == 0,"Invalid operation invalid input : BAD BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers("BAD","BAD",ADD,buffer),"INVALID") == 0,"Invalid operation invalid input : BAD BAD ADD ");
 
 }
 END_TEST
