@@ -5,7 +5,7 @@
 
 int isRomanNumberValid(char roman_value[])
 {
-	
+
 	int roman_string_pointer = 0;
 	int invalid_roman_string = SUCCESS;
 	while(roman_value[roman_string_pointer])

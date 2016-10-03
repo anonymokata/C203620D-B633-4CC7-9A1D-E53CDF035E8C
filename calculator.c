@@ -83,7 +83,7 @@ ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman
 
 ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
-	
+
 	/* isRomanNumberValid functions is used to check the valid roman character if the roman number is valid it returns true else returns false
 	   if both roman numbers are valid it will performs further operation else it will return INVALID*/
 	if(isRomanNumberValid(first_roman_number) != 0  && isRomanNumberValid(second_roman_number) != 0)
@@ -99,10 +99,10 @@ ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_
 
 		if(is_Limit_Of_Subtract_Is_Not_Exceeded(abs(first_number - second_number)) == TRUE)
 		{
-		/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result
-			*/			
+			/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result
+			 */			
 
-		result = decimal_number_to_roman_string(abs(first_number - second_number),result);
+			result = decimal_number_to_roman_string(abs(first_number - second_number),result);
 
 		}
 		else 
