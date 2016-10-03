@@ -28,7 +28,7 @@ START_TEST(invalid_roman_digit)
 {
 #line 27
 ck_assert_msg(roman_to_decimal_digit_value('\0') == 0,"operation failed for end of line");
-ck_assert_msg(roman_to_decimal_digit_value('K') == -1,"operation failed for passing wrong input");
+ck_assert_msg(roman_to_decimal_digit_value('K') == INVALID,"operation failed for passing wrong input");
 
 }
 END_TEST
@@ -87,7 +87,7 @@ END_TEST
 START_TEST(invalid_roman_string_1)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("XXC") == INVALID,"invalid roman string XXC %d ",roman_string_to_decimal_value("XXC"));
+ck_assert_msg(roman_string_to_decimal_value("XXC") == INVALID,"invalid roman string XXC");
 }
 END_TEST
 
@@ -181,6 +181,14 @@ START_TEST(roman_addition_M_D_equals_MD)
 {
 
 ck_assert_msg(strcmp(calculate_roman_numbers("M","D",ADD,buffer),"MD") == 0,"Operation failed to add the two roman value to MD");
+
+}
+END_TEST
+
+START_TEST(roman_addition_i_X_equals_XI)
+{
+
+ck_assert_msg(strcmp(calculate_roman_numbers("i","X",ADD,buffer),"XI") == 0,"Operation failed to add the two roman value to MD");
 
 }
 END_TEST
@@ -348,6 +356,7 @@ int main(void)
     tcase_add_test(tc1_1, _4_equals_IV);
     tcase_add_test(tc1_1, _2_equals_II);
     tcase_add_test(tc1_1, roman_addition_M_D_equals_MD);
+    tcase_add_test(tc1_1, roman_addition_i_X_equals_XI);
     tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
     tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
     tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);

@@ -3,19 +3,22 @@
 #define NEGATIVE 0
 #define SUCCESS 1
 
+/*this function is used to check the valid roman characters*/
 int isRomanNumberValid(char roman_value[])
 {
 
-	int roman_string_pointer = 0;
-	int invalid_roman_string = SUCCESS;
-	while(roman_value[roman_string_pointer])
+	int roman_string_pointer = 0; // intitlizing the pointer to the first element of the string
+	int invalid_roman_string = SUCCESS; // initlizing the variable that string is valid and successful verified
+	/*while condition runs until all the characters in the string is verified*/	
+	while(roman_value[roman_string_pointer]) 
 	{
+		/*if condition to check if the value fo the stringis less than zeror return negative and exit out of the loop*/
 		if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < 0)
 		{
-			invalid_roman_string = NEGATIVE;
+			invalid_roman_string = NEGATIVE; 
 			break;
 		}
-
+		/*if condition */
 		if((strlen(roman_value) -roman_string_pointer) > 2)
 		{
 			if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < roman_to_decimal_digit_value(roman_value[roman_string_pointer + 2]))

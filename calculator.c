@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <string.h> // to handle string objects
 #include <stdlib.h> // to handle pre-defined function: abs()
+#include <ctype.h>
 #include "calculator.h"
 #include "roman_string_to_decimal_value.h" // this files is used to call functions to convert roman_string to decimal_value
 #include "decimal_value_to_roman_string.h" // this files is used to call functions to convert decimal value to roman string
 #include "validation.h" // to check the validation of the roman string
 #include "limit.h" // to check the limitation of maximum roman cahracter
+#include "toUpperString.h"
 #define FALSE 0 // to check the condition if condition failes it returns false
 #define TRUE 1  //to check the constion is condition passes it will return true
 
@@ -31,6 +33,8 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
 	/*switch case is used to choose addtion or subtraction operation based on the input provided by the user*/
+			ROMAN_TYPE f_roman_number = stringUpper(first_roman_number);
+			ROMAN_TYPE s_roman_number = stringUpper(second_roman_number);	
 	switch(Add_Subtract)
 	{
 	case ADD:
@@ -101,9 +105,7 @@ ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_
 		{
 			/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result
 			 */			
-
 			result = decimal_number_to_roman_string(abs(first_number - second_number),result);
-
 		}
 		else 
 		{
