@@ -5,6 +5,7 @@
 #include "decimal_value_to_roman_string.h"
 # include "calculator.h"
 #include "validation.h"
+#include "toUpperString.h"
 #define INVALID 0
 #define VALID 1
 
@@ -313,6 +314,14 @@ ck_assert_msg(is_Limit_Of_Subtract_Is_Not_Exceeded(4900) == INVALID,"input numbe
 }
 END_TEST
 
+START_TEST(string_upper_iii_equals_III)
+{
+
+ck_assert_msg(strcmp(stringUpper("iii"),"III") == 0,"failed to conver lower to upper string");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -360,6 +369,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
     tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
     tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
+    tcase_add_test(tc1_1, string_upper_iii_equals_III);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);

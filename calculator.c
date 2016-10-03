@@ -33,8 +33,8 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
 	/*switch case is used to choose addtion or subtraction operation based on the input provided by the user*/
-			ROMAN_TYPE f_roman_number = stringUpper(first_roman_number);
-			ROMAN_TYPE s_roman_number = stringUpper(second_roman_number);	
+			//ROMAN_TYPE f_roman_number = stringUpper(first_roman_number);
+			//ROMAN_TYPE s_roman_number = stringUpper(second_roman_number);	
 	switch(Add_Subtract)
 	{
 	case ADD:
