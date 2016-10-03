@@ -35,8 +35,8 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 	/*switch case is used to choose addtion or subtraction operation based on the input provided by the user*/
 			ROMAN_TYPE f_roman_number = first_roman_number;
 			ROMAN_TYPE s_roman_number = second_roman_number;
-			printf("f_roman_number %s \n", f_roman_number);
-			printf("s_roman_number %s \n", s_roman_number);
+			//printf("f_roman_number %s \n", f_roman_number);
+			//printf("s_roman_number %s \n", s_roman_number);
 			f_roman_number = stringUpper(f_roman_number);
 			s_roman_number = stringUpper(s_roman_number);	
 	switch(Add_Subtract)

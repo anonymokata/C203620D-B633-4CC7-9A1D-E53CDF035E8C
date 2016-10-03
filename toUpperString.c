@@ -41,16 +41,16 @@ char* stringUpper(char roman_value[])
   
  
   while (roman_value[roman_pointer]) {
-	if (isupper(roman_value[roman_pointer]))
-	{
-		roman_pointer++;
-	}
-	else
-	{
+	//if (isupper(roman_value[roman_pointer]))
+	//{
+	//	roman_pointer++;
+	//}
+	//else
+	//{
 	roman_value[roman_pointer] = (toupper(roman_value[roman_pointer]));
-	}
+	//}
 	roman_pointer++;
   }
-	printf("after conversion of roman %s \n",roman_value);
+	
   return roman_value;
 }
