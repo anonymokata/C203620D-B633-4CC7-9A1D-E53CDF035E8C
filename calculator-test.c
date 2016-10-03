@@ -298,7 +298,16 @@ START_TEST(roman_subtraction_II_II_equals_INVALID)
 {
 char first_string[] = "II";
 char second_string[] = "II";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID") == 0,"operation failed to subtract two numbers : II ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID") == 0,"operation failed to subtract two numbers :Invalid operation ");
+
+}
+END_TEST
+
+START_TEST(roman_subtraction_IiI_II_equals_I)
+{
+char first_string[] = "IiI";
+char second_string[] = "II";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"I") == 0,"operation failed to subtract combination of upper and lower characters in string two numbers : I ");
 
 }
 END_TEST
@@ -362,6 +371,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_III_III_equals_VI);
     tcase_add_test(tc1_1, roman_subtraction_III_I_equals_II);
     tcase_add_test(tc1_1, roman_subtraction_II_II_equals_INVALID);
+    tcase_add_test(tc1_1, roman_subtraction_IiI_II_equals_I);
     tcase_add_test(tc1_1, valid_roman_character_M_equals_1000);
     tcase_add_test(tc1_1, Invalid_roman_character_A_equals_NULL);
     tcase_add_test(tc1_1, single_roman_char_conversion);
