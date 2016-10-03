@@ -51,7 +51,7 @@ or pre_roman_digit_characters depending on the input */
 
 		if(decimal_number >= M_VALUE){ // converstion for 1000
 			buffer = post_roman_digit_characters('M',decimal_number/M_VALUE,buffer);
-			decimal_number = decimal_number - (decimal_number/M_VALUE) * M_VALUE;
+			decimal_number = decimal_number - (decimal_number/M_VALUE) * M_VALUE;		
 		}/*End of 1000 VALUE*/
 		else if(decimal_number >=D_VALUE){ // conversion for 500
 			if(decimal_number <(CM)){
@@ -121,3 +121,5 @@ or pre_roman_digit_characters depending on the input */
 	*buffer = '\0';
 	return final_roman_string;
 }/*End of main function*/
+
+
