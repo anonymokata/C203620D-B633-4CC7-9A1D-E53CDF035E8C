@@ -33,15 +33,19 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 	/*calculate function reveives the input from test file first_roman number,
  		second roman_number, addition/subtraction operation and temproary memory */
 	/*switch case is used to choose addtion or subtraction operation based on the input provided by the user*/
-			//ROMAN_TYPE f_roman_number = stringUpper(first_roman_number);
-			//ROMAN_TYPE s_roman_number = stringUpper(second_roman_number);	
+			ROMAN_TYPE f_roman_number = first_roman_number;
+			ROMAN_TYPE s_roman_number = second_roman_number;
+			printf("f_roman_number %s \n", f_roman_number);
+			printf("s_roman_number %s \n", s_roman_number);
+			f_roman_number = stringUpper(f_roman_number);
+			s_roman_number = stringUpper(s_roman_number);	
 	switch(Add_Subtract)
 	{
 	case ADD:
-		result = add(first_roman_number,second_roman_number,result); // this function passes parameters to perform the addition operation
+		result = add(f_roman_number,s_roman_number,result); // this function passes parameters to perform the addition operation
 		break;
 	case SUBTRACT:
-		result = subtract(first_roman_number,second_roman_number,result); // this function passes parameters to perform the subtraction operation
+		result = subtract(f_roman_number,s_roman_number,result); // this function passes parameters to perform the subtraction operation
 		break;
 	default:
 		return "INVALID"; // default case returns the invalid 	
