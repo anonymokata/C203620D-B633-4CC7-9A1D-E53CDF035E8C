@@ -1,22 +1,32 @@
+/* 
+Roman calculator: performs addition and subtraction of roman values
+Author		: Vinay vittal Karagod
+File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
+		  roman_string_to_decimal_value.c, roman_string_to_decimal_value.h, decimal_value_to_roman_string.c,
+		  decimal_value_to_roman_string.h, error.c, error.h, validation.h, validation.c, limit.h , limit.c
+		  toUpperString.h, toUpperString.c 
+Date		: 10/4/2016
+ */
+
+
 #include <stdio.h>
 #include <string.h> // to handle string objects
 #include <stdlib.h> // to handle pre-defined function: abs()
-#include <ctype.h>
 #include "calculator.h"
-#include "roman_string_to_decimal_value.h" // this files is used to call functions to convert roman_string to decimal_value
-#include "decimal_value_to_roman_string.h" // this files is used to call functions to convert decimal value to roman string
-#include "validation.h" // to check the validation of the roman string
+#include "roman_string_to_decimal_value.h" // this header is used to call functions to convert roman_string to decimal_value
+#include "decimal_value_to_roman_string.h" // this header is used to call functions to convert decimal value to roman string
+#include "validation.h" // to validate the roman string
 #include "limit.h" // to check the limitation of maximum roman cahracter
-#include "toUpperString.h"
-#include "error.h"
+#include "toUpperString.h" // this header is used to call function to convert string from lower case to upper case
+#include "error.h" // this header is used to handle errors in the function 
 #define FALSE 0 // to check the condition if condition failes it returns false
 #define TRUE 1  //to check the constion is condition passes it will return true
-#define memeory 50
+#define memeory 50 // memory to hold the roman string 
 
 static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result);
 static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result);
 
-/* calculate_roman_numbers function is used to receieve first string, second string operation to perform add/subtract and buffer to store the result :
+/* calculate_roman_numbers function is used to receive first string, second string operation to perform add/subtract and buffer to store the result :
 const ROMAN_TYPE first_roman_number : to store the first roman string 
 const ROMAN_TYPE second_roman_number: to store the second roman string
 ROMAN_OPERATION Add_Subtract: add/subtract operation will be passed in the variable
@@ -30,8 +40,8 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 	char secnd_roman_number[memeory];
 	strcpy(secnd_roman_number,second_roman_number);
 	
-	stringUpper(frst_roman_number);
-	stringUpper(secnd_roman_number);
+	stringUpper(frst_roman_number); // function to convert lower case letters to upper case
+	stringUpper(secnd_roman_number); 
 
 	/*switch case is used to choose addtion or subtraction operation based on the input provided by the user*/
 				
@@ -53,7 +63,7 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 const ROMAN_TYPE first_roman_number : to store the first roman string 
 const ROMAN_TYPE second_roman_number: to store the second roman string
 ROMAN_TYPE result: to store the result after the roman operation*/
-ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
+static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 	/* isRomanNumberValid functions is used to check the valid roman character if the roman number is valid it returns true else returns false
 	   if both roman numbers are valid it will performs further operation else it will return INVALID*/
@@ -87,11 +97,11 @@ ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman
 	return result; // to return the final result after addtion operation	
 }
 
-/*subtract function to perform addition of roman numbers:
+/*subtract function to perform subtraction of roman numbers:
 const ROMAN_TYPE first_roman_number : to store the first roman string 
 const ROMAN_TYPE second_roman_number: to store the second roman string
 ROMAN_TYPE result: to store the result after the roman operation*/
-ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
+static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
 
 	/* isRomanNumberValid functions is used to check the valid roman character if the roman number is valid it returns true else returns false
