@@ -6,8 +6,10 @@
 # include "calculator.h"
 #include "validation.h"
 #include "toUpperString.h"
+#include "error.h"
 #define INVALID 0
 #define VALID 1
+#define INVALID_NEGATIVE -1
 
 #define size 50
 char buffer[size];
@@ -30,7 +32,7 @@ START_TEST(invalid_roman_digit)
 {
 #line 27
 ck_assert_msg(roman_to_decimal_digit_value('\0') == 0,"operation failed for end of line");
-ck_assert_msg(roman_to_decimal_digit_value('K') == INVALID,"operation failed for passing wrong input");
+ck_assert_msg(roman_to_decimal_digit_value('K') == INVALID_NEGATIVE,"operation failed for passing wrong input");
 
 }
 END_TEST
@@ -54,7 +56,7 @@ END_TEST
 START_TEST(invalid_roman_string)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("DM") == INVALID,"wrong format to pass the roman value DM");
+ck_assert_msg(roman_string_to_decimal_value("DM") == INVALID," Expected Error: wrong format to pass the roman value DM");
 }
 END_TEST
 
@@ -86,31 +88,10 @@ ck_assert_msg(roman_string_to_decimal_value("XXXVII") == 37,"operation failed to
 }
 END_TEST
 
-START_TEST(invalid_roman_string_1)
-{
-
-ck_assert_msg(roman_string_to_decimal_value("XXC") == INVALID,"invalid roman string XXC");
-}
-END_TEST
-
 START_TEST(MMCCCXLV_equals_2345)
 {
 
 ck_assert_msg(roman_string_to_decimal_value("MMCCCXLV") == 2345,"operation failed to convert roman to decimal of MMCCCXLV");
-}
-END_TEST
-
-START_TEST(zero_equals_zero)
-{
-
-ck_assert_msg(roman_string_to_decimal_value("0") == INVALID,"Invalid Operation passed zero value");
-}
-END_TEST
-
-START_TEST(XXXC_equals_70)
-{
-
-ck_assert_msg(roman_string_to_decimal_value("XXXC") == INVALID,"Not a valid roman number := XXXC");
 }
 END_TEST
 
@@ -200,7 +181,7 @@ END_TEST
 START_TEST(Invalid_roman_character_A_equals_NULL)
 {
 
-ck_assert_msg(isRomanNumberValid("A") == INVALID,"A is not a valid roman character");
+ck_assert_msg(isRomanNumberValid("A") == INVALID,"A is not a valid roman character=  %d",isRomanNumberValid("A"));
 
 }
 END_TEST
@@ -226,7 +207,7 @@ START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
 char first_string[] = "BAD";
 char second_string[] = "XXLL";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID") == 0,"Invalid operation bad input : BAD XXLL ADD");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID_STRING") == 0,"Invalid operation bad input : BAD XXLL ADD");
 
 }
 END_TEST
@@ -235,7 +216,7 @@ START_TEST(roman_addition_XX_BAD_equals_NULL)
 {
 char first_string[] = "XX";
 char second_string[] = "BAD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID") == 0,"Invalid operation bad second input : XX BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID_STRING") == 0,"Invalid operation bad second input : XX BAD ADD ");
 
 }
 END_TEST
@@ -244,7 +225,7 @@ START_TEST(roman_addition_BAD_BAD_equals_NULL)
 {
 char first_string[] = "BAD";
 char second_string[] = "BAD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID") == 0,"Invalid operation invalid input : BAD BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID_STRING") == 0,"Invalid operation invalid input : BAD BAD ADD ");
 
 }
 END_TEST
@@ -253,7 +234,7 @@ START_TEST(roman_addition_MM_MM_equals_MMMM)
 {
 char first_string[] = "MM";
 char second_string[] = "MM";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID") == 0,"Limit exceeds the maximum limit: 4000 ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"LIMIT_OVERFLOW") == 0,"Limit exceeds the maximum limit: 4000 ");
 
 }
 END_TEST
@@ -262,7 +243,7 @@ START_TEST(roman_addition_MMCCC_MMCCC_equals_MMMMDC)
 {
 char first_string[] = "MMCCC";
 char second_string[] = "MMMMDC";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID") == 0,"Limit exceeds the maximum limit: 4600 ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"LIMIT_OVERFLOW") == 0,"Limit exceeds the maximum limit: 4600 ");
 
 }
 END_TEST
@@ -271,7 +252,7 @@ START_TEST(roman_addition_0_0_equals_0)
 {
 char first_string[] = "0";
 char second_string[] = "0";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID") == 0,"Invalid input passing zeros as both input");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID_STRING") == 0,"Invalid :%s",calculate_roman_numbers(first_string,second_string,ADD,buffer));
 
 }
 END_TEST
@@ -298,7 +279,7 @@ START_TEST(roman_subtraction_II_II_equals_INVALID)
 {
 char first_string[] = "II";
 char second_string[] = "II";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID") == 0,"operation failed to subtract two numbers :Invalid operation ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"LIMIT_OVERFLOW") == 0,"failed to subtract:Invalid operation ");
 
 }
 END_TEST
@@ -315,7 +296,7 @@ END_TEST
 START_TEST(roman_limit_sum_3_equals_VALID)
 {
 
-ck_assert_msg(is_Limit_Of_Add_Is_Not_Exceeded(3) == VALID,"input number is with in the limit : 3");
+ck_assert_msg(check_limit_of_added_numbers(3) == VALID,"input number is with in the limit : 3");
 
 }
 END_TEST
@@ -323,7 +304,7 @@ END_TEST
 START_TEST(roman_limit_sum_4500_equals_INVALID)
 {
 
-ck_assert_msg(is_Limit_Of_Add_Is_Not_Exceeded(4500) == INVALID,"input number is out of limit : 4500");
+ck_assert_msg(check_limit_of_added_numbers(4500) == INVALID,"input number is out of limit : 4500");
 
 }
 END_TEST
@@ -331,7 +312,7 @@ END_TEST
 START_TEST(roman_limit_subtract_3700_equals_VALID)
 {
 
-ck_assert_msg(is_Limit_Of_Subtract_Is_Not_Exceeded(3700) == VALID,"input number is in limit : 3700");
+ck_assert_msg(check_limit_of_subtracted_numbers(3700) == VALID,"input number is in limit : 3700");
 
 }
 END_TEST
@@ -339,7 +320,7 @@ END_TEST
 START_TEST(roman_limit_subtract_4900_equals_INVALID)
 {
 
-ck_assert_msg(is_Limit_Of_Subtract_Is_Not_Exceeded(4900) == INVALID,"input number is out of limit : 4900");
+ck_assert_msg(check_limit_of_subtracted_numbers(4900) == INVALID,"input number is out of limit : 4900");
 
 }
 END_TEST
@@ -383,10 +364,7 @@ int main(void)
     tcase_add_test(tc1_1, IV_equals_4);
     tcase_add_test(tc1_1, VI_equals_6);
     tcase_add_test(tc1_1, XXXVII_equals_37);
-    tcase_add_test(tc1_1, invalid_roman_string_1);
     tcase_add_test(tc1_1, MMCCCXLV_equals_2345);
-    tcase_add_test(tc1_1, zero_equals_zero);
-    tcase_add_test(tc1_1, XXXC_equals_70);
     tcase_add_test(tc1_1, LV_equals_55);
     tcase_add_test(tc1_1, _1000_equals_M);
     tcase_add_test(tc1_1, _500_equals_D);

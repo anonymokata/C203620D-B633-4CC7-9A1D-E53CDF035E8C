@@ -1,4 +1,3 @@
-# include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "calculator.h"
@@ -11,8 +10,7 @@
 #define C 100
 #define D 500
 #define M 1000
-#define NEGATIVE -1
-#define INVALID 0
+#define INVALID -1
 
 
 //static int roman_to_decimal_digit_value(char roman_character);
@@ -43,7 +41,7 @@ int roman_to_decimal_digit_value(char roman_character)
 	break;
 	case '\0': decimal_value = 0;
 	break;
-	default: decimal_value = NEGATIVE;
+	default: decimal_value = INVALID;
 	}
 	return decimal_value;
 }
@@ -67,6 +65,7 @@ int roman_string_to_decimal_value(char roman_string[])
 			/*in the else condition function will check the order of the elements if the order of the string is not proper will return invalid string */
 			decimal_number = decimal_number+ (roman_to_decimal_digit_value(roman_string[roman_string_index+1]) - roman_to_decimal_digit_value(roman_string[roman_string_index]));
 			roman_string_index++;
+			
 		}
 		roman_string_index++;/*incrementing the while loop string */
 	}

@@ -11,7 +11,7 @@
 /*function to check the maxium value of the roman string after subtracting the two decimal numbers
 total_subtracted_value: this will hold the decimal value after subtracting the two decimal values
 */
-int is_Limit_Of_Subtract_Is_Not_Exceeded(int total_subtracted_value)
+int check_limit_of_subtracted_numbers(int total_subtracted_value)
 {
 	/* if condition is used checks for the maximum value , mainimum value and subtraction of the two numbers is 0. 
 		If any of the condition fails returns invalid */
@@ -27,7 +27,7 @@ int is_Limit_Of_Subtract_Is_Not_Exceeded(int total_subtracted_value)
 /*function to check the maxium value of the roman string after adding the two decimal numbers
 total_sum_value: this will hold the decimal value after adding the two decimal values
 */
-int is_Limit_Of_Add_Is_Not_Exceeded(int total_sum_value)
+int check_limit_of_added_numbers(int total_sum_value)
 {
 	/*if condition to check the maxium value if condition satisfies return invalid else
 		 returns valid limit for the decimal value*/
