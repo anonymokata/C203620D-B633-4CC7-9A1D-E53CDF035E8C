@@ -1,5 +1,6 @@
 #include <string.h>
 
+/*switch case to handle errors*/
 char* error(int error_number)
 {
 	switch(error_number)

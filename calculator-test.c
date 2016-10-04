@@ -333,6 +333,24 @@ ck_assert_msg(strcmp(stringUpper(r_string),"III") == 0,"failed to convert lower 
 }
 END_TEST
 
+START_TEST(roman_subtraction_0_0_equals_INVALID)
+{
+char first_string[] = "0";
+char second_string[] = "0";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID_STRING") == 0,"invalid string: passed zero for roman subtraction");
+
+}
+END_TEST
+
+START_TEST(roman_subtraction_0_XX_equals_INVALID)
+{
+char first_string[] = "0";
+char second_string[] = "XX";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID_STRING") == 0,"passed zero as first string for roman subtraction");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -380,6 +398,10 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
     tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
     tcase_add_test(tc1_1, string_upper_iii_equals_III);
+    tcase_add_test(tc1_1, roman_subtraction_0_0_equals_INVALID);
+    tcase_add_test(tc1_1, roman_subtraction_0_XX_equals_INVALID);
+
+
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
