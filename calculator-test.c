@@ -360,6 +360,16 @@ ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT
 }
 END_TEST
 
+START_TEST(roman_subtraction_IzzX_IisD_equals_INVALID)
+{
+char first_string[] = "IzzX";
+char second_string[] = "IisD";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID_STRING") == 0,"passed invalid strings: IzzX IisD ");
+
+}
+END_TEST
+
+
 
 int main(void)
 {
