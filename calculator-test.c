@@ -364,11 +364,19 @@ START_TEST(roman_subtraction_IzzX_IisD_equals_INVALID)
 {
 char first_string[] = "IzzX";
 char second_string[] = "IisD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID_STRING") == 0,"passed invalid strings: IzzX IisD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,buffer),"INVALID_STRING") == 0,"passed invalid strings for subtraction: IzzX IisD ");
 
 }
 END_TEST
 
+START_TEST(roman_addition_IzzX_IisD_equals_INVALID)
+{
+char first_string[] = "IzzX";
+char second_string[] = "IisD";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,buffer),"INVALID_STRING") == 0,"passed invalid strings for addition: IzzX IisD ");
+
+}
+END_TEST
 
 
 int main(void)
@@ -421,8 +429,8 @@ int main(void)
     tcase_add_test(tc1_1, roman_subtraction_0_0_equals_INVALID);
     tcase_add_test(tc1_1, roman_subtraction_0_XX_equals_INVALID);
     tcase_add_test(tc1_1, roman_subtraction_I_0_equals_INVALID);
-
-
+    tcase_add_test(tc1_1, roman_subtraction_IzzX_IisD_equals_INVALID);
+    tcase_add_test(tc1_1, roman_addition_IzzX_IisD_equals_INVALID);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
