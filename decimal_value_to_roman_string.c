@@ -38,7 +38,7 @@ static char* post_roman_digit_characters(char character,int count,char* result_m
 	}
 	return result_memory;
 }
-
+/*function to store the predigits*/
 static char* pre_roman_digit_characters(char character1,char character2,char* result_memory)
 {
 	/*this function stores the previous digits of the roman character in temproary memory result_memory*/
@@ -131,5 +131,3 @@ or pre_roman_digit_characters depending on the input */
 	*result_memory = '\0';
 	return final_roman_string;
 }/*End of main function*/
-
-

@@ -23,12 +23,6 @@ Date		: 10/4/2016
 #define INVALID -1
 
 
-//static int roman_to_decimal_digit_value(char roman_character);
-//static int limitation_check_subtraction(int first_number_1, int second_number_2);
-//static int limitation_check_addition(int first_number1, int second_number2);
-//static Roman add(Roman first_roman_number,Roman second_roman_number,Roman result);
-//static Roman subtract(Roman first_roman_number,Roman second_roman_number,Roman result);
-
 /*function to return decimal value of the roman digit*/
 int roman_to_decimal_digit_value(char roman_character)
 {
@@ -70,19 +64,20 @@ int roman_string_to_decimal_value(char roman_string[])
 
 		if(roman_to_decimal_digit_value(roman_string[roman_string_index]) >= roman_to_decimal_digit_value(roman_string[roman_string_index+1])) 
 			decimal_number = decimal_number + roman_to_decimal_digit_value(roman_string[roman_string_index]);
+				
 		else{
-			
-			/*in the else condition function will check the order of the elements if the order of the string is not proper will return invalid string */
+			/* else condition function will check the order of the elements 
+				if the order of the string is not proper will return invalid string */
 			decimal_number = decimal_number+ (roman_to_decimal_digit_value(roman_string[roman_string_index+1]) - roman_to_decimal_digit_value(roman_string[roman_string_index]));
 			roman_string_index++;
 			
 		}
 		roman_string_index++;/*incrementing the while loop string */
+			
 	}
 	return decimal_number; /*return of the final decimal value of the roman string*/
 }
 
-/*-----------------------------------*/
 
 
 
