@@ -56,7 +56,7 @@ int roman_string_to_decimal_value(char roman_string[])
 {
 	int roman_string_index = 0; // index will be pointing to first element of the string
 	int decimal_number = 0; // value to store the decimal value
-	/*while condition runs untils all the characters in the string is checked*/
+	/*while condition runs until all the characters in the string is checked*/
 	while(roman_string[roman_string_index]) 
 	{
 		/*if condition check the order of the string. If first digit is greater than the second digit it add the value else 
@@ -64,22 +64,16 @@ int roman_string_to_decimal_value(char roman_string[])
 
 		if(roman_to_decimal_digit_value(roman_string[roman_string_index]) >= roman_to_decimal_digit_value(roman_string[roman_string_index+1])) 
 			decimal_number = decimal_number + roman_to_decimal_digit_value(roman_string[roman_string_index]);
-				
+
 		else{
 			/* else condition function will check the order of the elements 
 				if the order of the string is not proper will return invalid string */
 			decimal_number = decimal_number+ (roman_to_decimal_digit_value(roman_string[roman_string_index+1]) - roman_to_decimal_digit_value(roman_string[roman_string_index]));
 			roman_string_index++;
-			
+
 		}
 		roman_string_index++;/*incrementing the while loop string */
-			
+
 	}
 	return decimal_number; /*return of the final decimal value of the roman string*/
 }
-
-
-
-
-
-

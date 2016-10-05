@@ -17,18 +17,18 @@ Date		: 10/4/2016
 int isRomanNumberValid(char roman_value[])
 {
 
-	int roman_string_pointer = 0; // intitlizing the pointer to the first element of the string
-	int invalid_roman_string = SUCCESS; // initlizing the variable as successful 
+	int roman_string_pointer = 0; // initializing the pointer to the first element of the string
+	int invalid_roman_string = SUCCESS; // initializing the variable as successful 
 	/*while condition runs until all the characters in the string is verified*/	
 	while(roman_value[roman_string_pointer]) 
 	{
-		/*if condition to check if the value fo the string is less than zero return negative and exit out of the loop*/
+		/*if condition to check if the value of the string is less than zero returns negative and exits out of the loop*/
 		if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < 0)
 		{
 			invalid_roman_string = NEGATIVE; 
 			break;
 		}
-		/*if condition */
+		/*if condition to check the order of the string*/
 		if((strlen(roman_value) -roman_string_pointer) > 2)
 		{
 			if(roman_to_decimal_digit_value(roman_value[roman_string_pointer]) < roman_to_decimal_digit_value(roman_value[roman_string_pointer + 2]))

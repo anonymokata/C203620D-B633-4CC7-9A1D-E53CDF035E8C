@@ -12,3 +12,68 @@ Instruction to run the program:
 1) make -f calc.makefile test
 
 /*-------------------------------------------*/
+Sample output:
+vinay@ubuntu:~/Roman_calculator2$ make -f calc.makefile test
+gcc -Wall -c calculator-test.c
+cc -Wall   -c -o roman_string_to_decimal_value.o roman_string_to_decimal_value.c
+cc -Wall   -c -o decimal_value_to_roman_string.o decimal_value_to_roman_string.c
+gcc -Wall -c roman_string_to_decimal_value.c decimal_value_to_roman_string.c calculator.c validation.c limit.c toUpperString.c
+cc -Wall   -c -o error.o error.c
+gcc -o calc-test roman_string_to_decimal_value.o decimal_value_to_roman_string.o calculator.o validation.o limit.o toUpperString.o error.o calculator-test.o -lcheck -lpthread -lm -lrt
+./calc-test
+Running suite(s): Core
+100%: Checks: 43, Failures: 0, Errors: 0
+
+/*-------------------------------------------*/
+
+To add more test cases use calculator-test.c file
+
+START_TEST(roman_addition_small_numbers)
+{
+ck_assert_msg(strcmp(calculate_roman_numbers("II","II","ADD",buffer),"IV") == 0,"Operation failed to return the roman value");
+
+}
+END_TEST
+
+tcase_add_test(tc1_1, roman_addition_small_numbers);
+/*-------------------------------------------*/
+Files description:
+
+calculator-test.c: This file is used to pass the test cases to the functions
+
+calculator.h, calculator.c: These files used to call all the other functions to perform addition and subtraction operation
+
+roman_string_to_decimal_value.c, roman_string_to_decimal_value.h: These files are used to convert the roman string to decimal value
+
+decimal_value_to_roman_string.c, decimal_value_to_roman_string.h: These files are used to convert decimal number to roman string
+
+error.c, error.h: These files are used to handle the errors in the program
+
+validation.h, validation.c: To check the validity of the roman string
+
+limit.h , limit.c: To check the limitation of the decimal value after addition/subtraction of two roman numbers
+
+toUpperString.h, toUpperString.c : These files are used to convert lowercase string to uppercase string
+
+/*-----------------------------------------------------------------*/
+
+1) Function calculate_roman_numbers receives the input of first roman number, second roman number, 
+   addition/subtraction operation and buffer to hold the output.
+2) toUpperString is used to convert the lowercase string to uppercase string
+3) Calculate_roman_numbers function passes first roman number and second roman number 
+   to roman_string_to_decimal_value function which returns the decimal value of the roman number.
+4) Function calculate_roman_numbers passes first decimal value, second decimal value and the buffer to hold the result
+	to decimal_value_to_roman_string to convert back the from decimal to roman string
+/*--------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+

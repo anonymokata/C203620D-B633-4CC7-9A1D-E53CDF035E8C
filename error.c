@@ -6,7 +6,7 @@ File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
 		  decimal_value_to_roman_string.h, error.c, error.h, validation.h, validation.c, limit.h , limit.c
 		  toUpperString.h, toUpperString.c 
 Date		: 10/4/2016
-*/
+ */
 
 #include <string.h>
 
@@ -15,15 +15,15 @@ char* error(int error_number)
 {
 	switch(error_number)
 	{
-		case 1:
-			return "INVALID_OPERATION";
-			break;
-		case 2:
-			return "LIMIT_OVERFLOW";
-			break;
-		case 3:
-			return "INVALID_STRING";
-			break;
+	case 1:
+		return "INVALID_OPERATION";
+		break;
+	case 2:
+		return "LIMIT_OVERFLOW";
+		break;
+	case 3:
+		return "INVALID_STRING";
+		break;
 	}
-return NULL;
+	return NULL;
 }
