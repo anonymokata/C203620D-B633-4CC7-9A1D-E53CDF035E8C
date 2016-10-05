@@ -15,11 +15,10 @@ Date		: 10/4/2016
 #include "decimal_value_to_roman_string.h" // this header is used to call functions to convert decimal value to roman string
 #include "validation.h" // this header is used to validate the roman string
 #include "limit.h" // this header is used to check the limitation of maximum roman string
-#include "toUpperString.h" // this header is used to call function to convert string from lower case to upper case
 #include "error.h" // this header is used to handle errors in the function
 #define FALSE 0 // to check the condition if condition fails it returns false
 #define TRUE 1  //to check the condition is condition passes it will return true
-#define memory 50 // memory to hold the roman string
+
 
 static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result);
 static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result);
@@ -32,13 +31,6 @@ ROMAN_OPERATION operation: add/subtract operation will be passed in the variable
 ROMAN_TYPE result: to store the result after the roman operation.*/
 ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_OPERATION operation, ROMAN_TYPE result)
 {
-	char frst_roman_number[memory]; //char memory to copy the contents of roman variable as the variables are constant.
-	strcpy(frst_roman_number,first_roman_number);
-	char secnd_roman_number[memory];
-	strcpy(secnd_roman_number,second_roman_number);
-
-	stringUpper(frst_roman_number); // function to convert lower case letters to upper case.
-	stringUpper(secnd_roman_number);
 
 	/*switch case is used to choose addition or subtraction operation based on the input provided by the user*/
 
@@ -46,11 +38,11 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 	{
 	case ADD:
 		// this function passes parameters to perform the addition operation.
-		result = add(frst_roman_number,secnd_roman_number,result);
+		result = add(first_roman_number,second_roman_number,result);
 		break;
 	case SUBTRACT:
 		// this function passes parameters to perform the subtraction operation.
-		result = subtract(frst_roman_number,secnd_roman_number,result);
+		result = subtract(first_roman_number,second_roman_number,result);
 		break;
 	default:
 		result = error(INVALID_OPERATION); // default case returns error.

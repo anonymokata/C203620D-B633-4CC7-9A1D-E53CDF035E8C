@@ -5,7 +5,6 @@
 #include "decimal_value_to_roman_string.h"
 # include "calculator.h"
 #include "validation.h"
-#include "toUpperString.h"
 #include "error.h"
 #define INVALID 0
 #define VALID 1
@@ -321,14 +320,6 @@ ck_assert_msg(check_limit_of_subtracted_numbers(4900) == INVALID,"input number i
 }
 END_TEST
 
-START_TEST(string_upper_iii_equals_III)
-{
-char r_string[] = "iii";
-ck_assert_msg(strcmp(stringUpper(r_string),"III") == 0,"failed to convert lower to upper string");
-
-}
-END_TEST
-
 START_TEST(roman_subtraction_0_0_equals_INVALID)
 {
 first_string = "0";
@@ -491,7 +482,6 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_I_I_equals_II);
     tcase_add_test(tc1_1, roman_addition_BAD_XXLL_equals_NULL);
     tcase_add_test(tc1_1, roman_addition_XX_BAD_equals_NULL);
-    tcase_add_test(tc1_1, string_upper_iii_equals_III);
     tcase_add_test(tc1_1, roman_subtraction_0_0_equals_INVALID);
     tcase_add_test(tc1_1, roman_subtraction_0_XX_equals_INVALID);
     tcase_add_test(tc1_1, roman_subtraction_I_0_equals_INVALID);
