@@ -391,12 +391,20 @@ ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,fina
 }
 END_TEST
 
-
 START_TEST(roman_addition_V0x_0_equals_Invalid)
 {
 char first_string[] = "V0x";
 char second_string[] = "0";
 ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"passed Invalid valid strings : V0x 0 = INVALID_STRING");
+
+}
+END_TEST
+
+START_TEST(roman_addition_iiI_v_equals_VIII)
+{
+char first_string[] = "iiI";
+char second_string[] = "v";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"VIII") == 0,"passed valid strings : iiI v = VIII");
 
 }
 END_TEST
@@ -455,6 +463,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_V_V_equals_X);
     tcase_add_test(tc1_1, roman_addition_Vzx_V_equals_Invalid);
     tcase_add_test(tc1_1, roman_addition_V0x_0_equals_Invalid);
+    tcase_add_test(tc1_1, roman_addition_iiI_v_equals_VIII);
 
     
     srunner_run_all(sr, CK_ENV);
