@@ -94,7 +94,7 @@ END_TEST
 START_TEST(LV_equals_55)
 {
 
-ck_assert_msg(roman_string_to_decimal_value("LV") == 55,"valid roman number: lv == 55");
+ck_assert_msg(roman_string_to_decimal_value("LV") == 55,"valid roman number LV = 55");
 }
 END_TEST
 
@@ -160,7 +160,7 @@ START_TEST(roman_addition_M_D_equals_MD)
 {
 first_string = "M";
 second_string = "D";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"MD") == 0,"Operation failed to add the two roman value to MD");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"MD") == 0,"valid addition :M D");
 
 }
 END_TEST
@@ -169,7 +169,7 @@ START_TEST(roman_addition_i_X_equals_XI)
 {
 first_string = "i";
 second_string = "X";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"XI") == 0,"Operation failed to add the two roman values : XI");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"XI") == 0,"valid addition : i X");
 
 }
 END_TEST
@@ -177,7 +177,7 @@ END_TEST
 START_TEST(Invalid_roman_character_A_equals_NULL)
 {
 
-ck_assert_msg(isRomanNumberValid("A") == INVALID,"A is not a valid roman character=  %d",isRomanNumberValid("A"));
+ck_assert_msg(isRomanNumberValid("A") == INVALID,"A is not a valid roman character");
 
 }
 END_TEST
@@ -194,7 +194,7 @@ START_TEST(roman_addition_I_I_equals_II)
 {
 first_string = "I";
 second_string = "I";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"II") == 0,"Operation failed to add the two roman value to II");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"II") == 0,"valid addition: I I");
 
 }
 END_TEST
@@ -203,7 +203,7 @@ START_TEST(roman_addition_BAD_XXLL_equals_NULL)
 {
 first_string = "BAD";
 second_string = "XXLL";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"Invalid operation bad input : BAD XXLL ADD");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"invalid addition : BAD XXLL ADD");
 
 }
 END_TEST
@@ -212,7 +212,7 @@ START_TEST(roman_addition_XX_BAD_equals_NULL)
 {
 first_string = "XX";
 second_string = "BAD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"Invalid operation bad second input : XX BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"invalid addition: XX BAD ADD ");
 
 }
 END_TEST
@@ -221,7 +221,7 @@ START_TEST(roman_addition_BAD_BAD_equals_NULL)
 {
 first_string = "BAD";
 second_string = "BAD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"Invalid operation invalid input : BAD BAD ADD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"invalid addition : BAD BAD ADD ");
 
 }
 END_TEST
@@ -230,7 +230,7 @@ START_TEST(roman_addition_MM_MM_equals_MMMM)
 {
 first_string = "MM";
 second_string = "MM";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"LIMIT_OVERFLOW") == 0,"Limit exceeds the maximum limit: 4000 ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"LIMIT_OVERFLOW") == 0,"Limit exceeds(3999): 4000 ");
 
 }
 END_TEST
@@ -239,7 +239,7 @@ START_TEST(roman_addition_MMCCC_MMCCC_equals_MMMMDC)
 {
 first_string = "MMCCC";
 second_string = "MMMMDC";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"LIMIT_OVERFLOW") == 0,"Limit exceeds the maximum limit: 4600 ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"LIMIT_OVERFLOW") == 0,"Limit exceeds(3999): 4600 ");
 
 }
 END_TEST
@@ -248,7 +248,7 @@ START_TEST(roman_addition_0_0_equals_0)
 {
 first_string = "0";
 second_string = "0";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"Invalid :%s",calculate_roman_numbers(first_string,second_string,ADD,final_result));
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"Invalid addition: 0 0 ");
 
 }
 END_TEST
@@ -266,7 +266,7 @@ START_TEST(roman_subtraction_III_I_equals_II)
 {
 first_string = "III";
 second_string = "i";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"II") == 0,"operation failed to subtract two numbers : II ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"II") == 0,"valid subtraction: III i ");
 
 }
 END_TEST
@@ -275,7 +275,7 @@ START_TEST(roman_subtraction_II_II_equals_INVALID)
 {
 first_string = "II";
 second_string = "II";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"NULL_VALUE") == 0,"failed to subtract:Invalid operation ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"NULL_VALUE") == 0,"invalid subtraction, returns 0:II II  ");
 
 }
 END_TEST
@@ -284,7 +284,7 @@ START_TEST(roman_subtraction_IiI_II_equals_I)
 {
 first_string = "IiI";
 second_string = "II";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"I") == 0,"operation failed to subtract combination of upper and lower characters in string two numbers : I ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"I") == 0,"valid subtraction: IiI I ");
 
 }
 END_TEST
@@ -333,7 +333,7 @@ START_TEST(roman_subtraction_0_0_equals_INVALID)
 {
 first_string = "0";
 second_string = "0";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"invalid string: passed zero for roman subtraction");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"invalid subtraction: 0 0");
 
 }
 END_TEST
@@ -342,7 +342,7 @@ START_TEST(roman_subtraction_0_XX_equals_INVALID)
 {
 first_string = "0";
 second_string = "XX";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"passed first string as zero for roman subtraction");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"invalid subtraction: 0 XX");
 
 }
 END_TEST
@@ -351,7 +351,7 @@ START_TEST(roman_subtraction_I_0_equals_INVALID)
 {
 first_string = "I";
 second_string = "0";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"passed second string as zero for roman subtraction");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"invalid subtraction: I 0");
 
 }
 END_TEST
@@ -360,7 +360,7 @@ START_TEST(roman_subtraction_IzzX_IisD_equals_INVALID)
 {
 first_string = "IzzX";
 second_string = "IisD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"passed invalid strings for subtraction: IzzX IisD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"invalid subtraction: IzzX IisD ");
 
 }
 END_TEST
@@ -369,7 +369,7 @@ START_TEST(roman_addition_IzzX_IisD_equals_INVALID)
 {
 first_string = "IzzX";
 second_string = "IisD";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"passed invalid strings for addition: IzzX IisD ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"invalid addition: IzzX IisD ");
 
 }
 END_TEST
@@ -388,7 +388,7 @@ START_TEST(roman_addition_Vzx_V_equals_Invalid)
 {
 first_string = "Vzx";
 second_string = "V";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"passed invalid valid strings : Vzx V = INVALID_STRING");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"invalid valid strings : Vzx V");
 
 }
 END_TEST
@@ -397,7 +397,7 @@ START_TEST(roman_addition_V0x_0_equals_Invalid)
 {
 first_string = "V0x";
 second_string = "0";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"passed Invalid valid strings : V0x 0 = INVALID_STRING");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"Invalid valid strings : V0x 0");
 
 }
 END_TEST
@@ -406,7 +406,7 @@ START_TEST(roman_addition_iiI_v_equals_VIII)
 {
 first_string = "iiI";
 second_string = "v";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"VIII") == 0,"passed valid strings : iiI v = VIII");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"VIII") == 0,"valid strings : iiI v = VIII");
 
 }
 END_TEST
@@ -415,7 +415,7 @@ START_TEST(roman_subtraction_abcd_abcd_equals_INVALID)
 {
 first_string = "abcd";
 second_string = "abcd";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"passed invalid strings for subtraction: abcd abcd ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"invalid subtraction: abcd abcd ");
 
 }
 END_TEST
@@ -424,7 +424,7 @@ START_TEST(roman_subtraction_iii_i_equals_II)
 {
 first_string = "iii";
 second_string = "i";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"II") == 0,"passed valid for subtraction:iii i");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"II") == 0,"valid subtraction:iii i");
 
 }
 END_TEST
@@ -433,7 +433,7 @@ START_TEST(roman_subtraction_v_v_equals_invalid)
 {
 first_string = "v";
 second_string = "v";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"NULL_VALUE") == 0,"passed valid for subtraction but returns 0:v v");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"NULL_VALUE") == 0,"valid subtraction, returns 0:v v");
 
 }
 END_TEST
