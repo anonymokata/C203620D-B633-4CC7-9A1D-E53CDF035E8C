@@ -13,24 +13,20 @@ Date		: 10/4/2016
 #include "limit.h"
 #define MAX_VALUE 3999 // maximum positive number for the roman string
 #define MIN_VALUE -3999 //minimum negative number in case of roman string 
-#define INVALID 0 // defined macro returns 0 if condition fails
-#define VALID 1 // defined macro returns 1 if condition satisfies 
 
 /*------------------------------------*/
 /*function to check the maximum value of the roman string after subtracting the two decimal numbers
 total_subtracted_value: this will hold the decimal value after subtracting the two decimal values
  */
-int check_limit_of_subtracted_numbers(int total_subtracted_value)
+BOOL check_limit_of_subtracted_numbers(int total_subtracted_value)
 {
 	/* if condition is used checks for the maximum value , minimum value and subtraction of the two numbers is 0. 
 		If any of the condition fails returns invalid */
-	int validate;	
+	bool validate;	
 	if(total_subtracted_value > MAX_VALUE || total_subtracted_value < MIN_VALUE)
-	{
-		validate =  INVALID;
-	}
+		validate =  TRUE;
 	else
-		validate =  VALID;
+		validate =  FALSE;
 return validate;
 }
 
@@ -38,27 +34,26 @@ return validate;
 /*function to check the maximum value of the roman string after adding the two decimal numbers
 total_sum_value: this will hold the decimal value after adding the two decimal values
  */
-int check_limit_of_added_numbers(int total_sum_value)
+BOOL check_limit_of_added_numbers(int total_sum_value)
 {
 	/*if condition to check the maximum value if condition satisfies return invalid else
 		 returns valid limit for the decimal value*/
-	int validate;
+	bool validate;
 	if(total_sum_value > MAX_VALUE)
-	{
-		validate =  INVALID;
-	}
+		validate =  TRUE;
 	else
-		validate =  VALID;
+		validate = FALSE;
 return validate;
 }
 
 
-int  isSubtractedNumberNull(int total_subtracted_value)
+BOOL isSubtractedNumberNull(int total_subtracted_value)
 {
-	int validate;	
+	bool validate;	
 	if(total_subtracted_value == 0)
-		validate = INVALID;
+		validate = TRUE;
 	else
-		validate = VALID;
+		validate = FALSE;
+	
 return validate;
 }

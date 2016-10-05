@@ -10,8 +10,9 @@ Date		: 10/4/2016
 
 #ifndef limit_H
 #define limit_H
-//typedef enum {TRUE = 1, FALSE = 0} BOOL;
-int isSubtractedNumberNull(int total_subtracted_value);
-int check_limit_of_added_numbers(int total_sum_value);
-int check_limit_of_subtracted_numbers(int total_subtracted_value);
+typedef int bool;
+typedef enum {TRUE, FALSE} BOOL;
+BOOL isSubtractedNumberNull(int total_subtracted_value);
+BOOL check_limit_of_added_numbers(int total_sum_value);
+BOOL check_limit_of_subtracted_numbers(int total_subtracted_value);
 #endif
