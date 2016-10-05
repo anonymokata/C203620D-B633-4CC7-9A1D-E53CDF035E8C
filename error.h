@@ -10,6 +10,12 @@ Date		: 10/4/2016
 
 #ifndef error_H
 #define error_H
-char* error(int error_number);
+//typedef char* ROMAN_TYPE;
+//typedef enum{ ADD, SUBTRACT} ROMAN_OPERATION;
+//ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_OPERATION operation, ROMAN_TYPE result);
+
+//typedef char* ERROR_TYPE;
+typedef enum{ INVALID_OPERATION, LIMIT_OVERFLOW, INVALID_STRING} ERRORS;
+char* error(ERRORS error_value);
 
 #endif

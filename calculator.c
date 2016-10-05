@@ -53,7 +53,7 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 		result = subtract(frst_roman_number,secnd_roman_number,result);
 		break;
 	default:
-		return error(1); // default case returns error
+		return error(INVALID_OPERATION); // default case returns error
 	}
 	return result;
 }
@@ -85,13 +85,13 @@ static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE secon
 		}
 		else // else condition is used for "if(check_limit_of_added_numbers(first_number + second_number) == TRUE)"
 		{
-			result = error(2);
+			result = error(LIMIT_OVERFLOW);
 		}
 	}
 
 	else  // else condition is used for if(isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number))
 	{
-		result =  error(3);
+		result =  error(INVALID_STRING);
 
 	}
 	return result; // to return the final result after addition operation
@@ -126,12 +126,12 @@ static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE 
 		}
 		else
 		{  // else condition is used for if(check_limit_of_subtracted_numbers(abs(first_number - second_number)) == TRUE)
-			result =  error(2);
+			result =  error(LIMIT_OVERFLOW);
 		}
 	}
 	else
 	{// else conditions used for if(isRomanNumberValid(first_roman_number) && isRomanNumberValid(second_roman_number))
-		result = error(3);
+		result = error(INVALID_STRING);
 	}
 	return result;
 }

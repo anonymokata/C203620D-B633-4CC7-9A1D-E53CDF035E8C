@@ -9,21 +9,24 @@ Date		: 10/4/2016
  */
 
 #include <string.h>
+#include "error.h"
 
 /*switch case to handle errors*/
-char* error(int error_number)
+char* error(ERRORS error_value)
 {
-	switch(error_number)
+	char* error_string;	
+	
+	switch(error_value)
 	{
-	case 1:
-		return "INVALID_OPERATION";
+	case INVALID_OPERATION:
+		error_string = "INVALID_OPERATION";
 		break;
-	case 2:
-		return "LIMIT_OVERFLOW";
+	case LIMIT_OVERFLOW:
+		error_string = "LIMIT_OVERFLOW";
 		break;
-	case 3:
-		return "INVALID_STRING";
+	case INVALID_STRING:
+		error_string =  "INVALID_STRING";
 		break;
 	}
-	return NULL;
+	return error_string;
 }
