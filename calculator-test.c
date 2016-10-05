@@ -409,6 +409,15 @@ ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,fina
 }
 END_TEST
 
+START_TEST(roman_subtraction_abcd_abcd_equals_INVALID)
+{
+char first_string[] = "abcd";
+char second_string[] = "abcd";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"INVALID_STRING") == 0,"passed invalid strings for subtraction: abcd abcd ");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -464,6 +473,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_addition_Vzx_V_equals_Invalid);
     tcase_add_test(tc1_1, roman_addition_V0x_0_equals_Invalid);
     tcase_add_test(tc1_1, roman_addition_iiI_v_equals_VIII);
+    tcase_add_test(tc1_1, roman_subtraction_abcd_abcd_equals_INVALID);
 
     
     srunner_run_all(sr, CK_ENV);
