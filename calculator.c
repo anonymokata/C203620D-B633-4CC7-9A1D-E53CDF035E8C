@@ -53,7 +53,7 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 		result = subtract(frst_roman_number,secnd_roman_number,result);
 		break;
 	default:
-		return error(INVALID_OPERATION); // default case returns error
+		result = error(INVALID_OPERATION); // default case returns error
 	}
 	return result;
 }

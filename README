@@ -22,7 +22,7 @@ cc -Wall   -c -o error.o error.c
 gcc -o calc-test roman_string_to_decimal_value.o decimal_value_to_roman_string.o calculator.o validation.o limit.o toUpperString.o error.o calculator-test.o -lcheck -lpthread -lm -lrt
 ./calc-test
 Running suite(s): Core
-100%: Checks: 43, Failures: 0, Errors: 0
+100%: Checks: 51, Failures: 0, Errors: 0
 
 /*-------------------------------------------*/
 
