@@ -382,6 +382,15 @@ ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,fina
 }
 END_TEST
 
+START_TEST(roman_addition_Vzx_V_equals_Invalid)
+{
+char first_string[] = "Vzx";
+char second_string[] = "V";
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,ADD,final_result),"INVALID_STRING") == 0,"passed valid strings : Vzx V = INVALID_STRING");
+
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -434,6 +443,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_subtraction_IzzX_IisD_equals_INVALID);
     tcase_add_test(tc1_1, roman_addition_IzzX_IisD_equals_INVALID);
     tcase_add_test(tc1_1, roman_addition_V_V_equals_X);
+    tcase_add_test(tc1_1, roman_addition_Vzx_V_equals_Invalid);
 
     
     srunner_run_all(sr, CK_ENV);
