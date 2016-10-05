@@ -120,9 +120,15 @@ static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE 
 
 		if(check_limit_of_subtracted_numbers(abs(first_number - second_number)) == TRUE)
 		{
-			/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result
-			 */
+			if(isSubtractedNumberNull(abs(first_number - second_number)) == TRUE)
+			{				
+			/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result */
 			result = decimal_number_to_roman_string(abs(first_number - second_number),result);
+			}
+			else
+			{
+				result = error(NULL_VALUE);			
+			}
 		}
 		else
 		{  // else condition is used for if(check_limit_of_subtracted_numbers(abs(first_number - second_number)) == TRUE)

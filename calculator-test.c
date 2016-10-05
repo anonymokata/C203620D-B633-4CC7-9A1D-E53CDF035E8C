@@ -275,7 +275,7 @@ START_TEST(roman_subtraction_II_II_equals_INVALID)
 {
 first_string = "II";
 second_string = "II";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"LIMIT_OVERFLOW") == 0,"failed to subtract:Invalid operation ");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"NULL_VALUE") == 0,"failed to subtract:Invalid operation ");
 
 }
 END_TEST
@@ -433,7 +433,15 @@ START_TEST(roman_subtraction_v_v_equals_invalid)
 {
 first_string = "v";
 second_string = "v";
-ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"LIMIT_OVERFLOW") == 0,"passed valid for subtraction but returns 0:v v");
+ck_assert_msg(strcmp(calculate_roman_numbers(first_string,second_string,SUBTRACT,final_result),"NULL_VALUE") == 0,"passed valid for subtraction but returns 0:v v");
+
+}
+END_TEST
+
+START_TEST(roman_subtraction_0_equals_null)
+{
+
+ck_assert_msg(isSubtractedNumberNull(0) == INVALID,"passed zero for subtraction as input");
 
 }
 END_TEST
@@ -496,6 +504,7 @@ int main(void)
     tcase_add_test(tc1_1, roman_subtraction_abcd_abcd_equals_INVALID);
     tcase_add_test(tc1_1, roman_subtraction_iii_i_equals_II);
     tcase_add_test(tc1_1, roman_subtraction_v_v_equals_invalid);
+    tcase_add_test(tc1_1, roman_subtraction_0_equals_null);
 
 
     

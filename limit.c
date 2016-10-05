@@ -24,12 +24,14 @@ int check_limit_of_subtracted_numbers(int total_subtracted_value)
 {
 	/* if condition is used checks for the maximum value , minimum value and subtraction of the two numbers is 0. 
 		If any of the condition fails returns invalid */
-	if(total_subtracted_value > MAX_VALUE || total_subtracted_value < MIN_VALUE || total_subtracted_value == INVALID)
+	int validate;	
+	if(total_subtracted_value > MAX_VALUE || total_subtracted_value < MIN_VALUE)
 	{
-		return INVALID;
+		validate =  INVALID;
 	}
 	else
-		return VALID;
+		validate =  VALID;
+return validate;
 }
 
 /*----------------------------------------*/
@@ -40,12 +42,23 @@ int check_limit_of_added_numbers(int total_sum_value)
 {
 	/*if condition to check the maximum value if condition satisfies return invalid else
 		 returns valid limit for the decimal value*/
+	int validate;
 	if(total_sum_value > MAX_VALUE)
 	{
-		return INVALID;
+		validate =  INVALID;
 	}
 	else
-		return VALID;
+		validate =  VALID;
+return validate;
 }
 
 
+int  isSubtractedNumberNull(int total_subtracted_value)
+{
+	int validate;	
+	if(total_subtracted_value == 0)
+		validate = INVALID;
+	else
+		validate = VALID;
+return validate;
+}

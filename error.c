@@ -25,8 +25,10 @@ char* error(ERRORS error_value)
 		error_string = "LIMIT_OVERFLOW";
 		break;
 	case INVALID_STRING:
-		error_string =  "INVALID_STRING";
+		error_string = "INVALID_STRING";
 		break;
-	}
+	case NULL_VALUE:
+		error_string = "NULL_VALUE";
+	}	
 	return error_string;
 }
