@@ -56,12 +56,11 @@ limit.h , limit.c: To check the limitation of the decimal value after addition/s
 /*-----------------------------------------------------------------*/
 
 1) Function calculate_roman_numbers receives the input of first roman number, second roman number, 
-   addition/subtraction operation and buffer to hold the output.
-2) toUpperString is used to convert the lowercase string to uppercase string
-3) Calculate_roman_numbers function passes first roman number and second roman number 
-   to roman_string_to_decimal_value function which returns the decimal value of the roman number.
-4) Function calculate_roman_numbers passes first decimal value, second decimal value and the buffer to hold the result
-	to decimal_value_to_roman_string to convert back the from decimal to roman string
+   addition/subtraction operation and buffer to hold the output from calculator-test.c file.
+2) Calculate_roman_numbers function passes first roman number and second roman number 
+   to roman_string_to_decimal_value function, which returns the decimal value of the roman number.
+3) Function calculate_roman_numbers passes first decimal value, second decimal value and the buffer to hold the result 
+to decimal_value_to_roman_string function to convert back from decimal value to roman string
 /*--------------------------------------------------------------------------*/
 
 
