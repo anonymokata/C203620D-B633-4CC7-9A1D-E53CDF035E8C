@@ -14,7 +14,7 @@ Date		: 10/4/2016
 #define SUCCESS 1
 
 /*this function is used to check for invalid roman characters*/
-int is_Roman_Number_Valid(char roman_value[])
+int is_roman_number_valid(char roman_value[])
 {
 	int roman_string_pointer = 0; // initializing the pointer to the first element of the string
 	int validity_check = SUCCESS; // initializing the variable as valid 

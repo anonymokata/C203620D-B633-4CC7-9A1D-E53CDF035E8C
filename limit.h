@@ -12,7 +12,7 @@ Date		: 10/4/2016
 #define limit_H
 typedef int bool;
 typedef enum {TRUE, FALSE} BOOL;
-BOOL is_Subtracted_Number_Null(int total_subtracted_value);
+BOOL is_subtracted_number_null(int total_subtracted_value);
 BOOL check_limit_of_added_numbers(int total_sum_value);
 BOOL check_limit_of_subtracted_numbers(int total_subtracted_value);
 #endif

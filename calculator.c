@@ -53,10 +53,10 @@ const ROMAN_TYPE second_roman_number: to store the second roman string.
 ROMAN_TYPE result: to store the result after the roman operation.*/
 static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
-	/* is_Roman_Number_Valid functions is used to check the valid roman character
+	/* is_roman_number_valid functions is used to check the valid roman character
 	   if the roman number is valid it returns true else returns false
 	   if both roman numbers are valid it will perform further operations else it will return error*/
-	if( is_Roman_Number_Valid(first_roman_number) && is_Roman_Number_Valid(second_roman_number))
+	if( is_roman_number_valid(first_roman_number) && is_roman_number_valid(second_roman_number))
 	{
 		/* int variable first_number is used to store decimal value of the first roman number,
 			roman_string_to_decimal_value function is used here to convert roman string to decimal value*/
@@ -91,10 +91,10 @@ const ROMAN_TYPE second_roman_number: to store the second roman string
 ROMAN_TYPE result: to store the result after the roman operation*/
 static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
-	/* is_Roman_Number_Valid functions is used to check the valid roman string.
+	/* is_roman_number_valid functions is used to check the valid roman string.
 	   If the roman number is valid it returns true else returns false.
 	   If both roman numbers are valid it will performs further operation else it will return error*/
-	if(is_Roman_Number_Valid(first_roman_number) && is_Roman_Number_Valid(second_roman_number))
+	if(is_roman_number_valid(first_roman_number) && is_roman_number_valid(second_roman_number))
 	{
 		/* int variable first_number is used to store decimal value of the first roman number,
 			roman_string_to_decimal_value function is used to convert roman string to decimal value*/
@@ -107,7 +107,7 @@ static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE 
 			used as there are no negative numbers or zero value in roman characters */
 		if(check_limit_of_subtracted_numbers(abs(first_number - second_number)) == TRUE)
 		{
-			if(is_Subtracted_Number_Null(abs(first_number - second_number)) == TRUE)
+			if(is_subtracted_number_null(abs(first_number - second_number)) == TRUE)
 			{				
 			/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result */
 			result = decimal_number_to_roman_string(abs(first_number - second_number),result);

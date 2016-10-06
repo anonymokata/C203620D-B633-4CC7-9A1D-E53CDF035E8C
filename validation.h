@@ -11,6 +11,6 @@ Date		: 10/4/2016
 #ifndef validation_H
 #define validation_H
 
-int is_Roman_Number_Valid(char roman_value[]);
+int is_roman_number_valid(char roman_value[]);
 
 #endif

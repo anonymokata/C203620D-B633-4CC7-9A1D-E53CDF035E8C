@@ -40,7 +40,7 @@ BOOL check_limit_of_added_numbers(int total_sum_value)
 return validate;
 }
 /*function to check weather the subtracted result of two decimal number is NULL*/
-BOOL is_Subtracted_Number_Null(int total_subtracted_value)
+BOOL is_subtracted_number_null(int total_subtracted_value)
 {
 	bool validate;	
 	if(total_subtracted_value == 0)
