@@ -53,8 +53,6 @@ validation.h, validation.c: To check the validity of the roman string
 
 limit.h , limit.c: To check the limitation of the decimal value after addition/subtraction of two roman numbers
 
-toUpperString.h, toUpperString.c : These files are used to convert lowercase string to uppercase string
-
 /*-----------------------------------------------------------------*/
 
 1) Function calculate_roman_numbers receives the input of first roman number, second roman number, 
