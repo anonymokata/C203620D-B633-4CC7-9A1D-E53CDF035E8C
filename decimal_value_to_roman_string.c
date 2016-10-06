@@ -7,7 +7,7 @@ File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
 		  toUpperString.h, toUpperString.c 
 Date		: 10/4/2016
  */
-
+#include "decimal_value_to_roman_string.h"
 #define zero 0
 #define M_VALUE 1000
 #define D_VALUE 500

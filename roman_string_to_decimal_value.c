@@ -8,8 +8,8 @@ File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
 Date		: 10/4/2016
  */
 
-#include "calculator.h"
-#include "decimal_value_to_roman_string.h"
+
+
 #include "roman_string_to_decimal_value.h"
 #define I 1
 #define V 5

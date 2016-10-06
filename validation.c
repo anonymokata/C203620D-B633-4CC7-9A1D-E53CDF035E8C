@@ -9,6 +9,7 @@ Date		: 10/4/2016
  */
 
 #include <string.h>
+#include "validation.h"
 #include "roman_string_to_decimal_value.h"
 #define FAILURE 0
 #define SUCCESS 1
