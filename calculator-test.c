@@ -432,7 +432,7 @@ END_TEST
 START_TEST(roman_subtraction_0_equals_null)
 {
 
-ck_assert_msg(is_subtracted_number_null(0) == INVALID,"passed zero for subtraction as input");
+ck_assert_msg(is_subtracted_number_null(0) == VALID,"passed zero for subtraction as input");
 
 }
 END_TEST

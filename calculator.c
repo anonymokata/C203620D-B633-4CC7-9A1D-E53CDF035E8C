@@ -24,8 +24,8 @@ static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE 
 
 /* calculate_roman_numbers function is used to receive first string, second string,
  operation to perform add/subtract and, buffer to store the result :
-const ROMAN_TYPE first_roman_number : to store the first roman string.
-const ROMAN_TYPE second_roman_number: to store the second roman string.
+const ROMAN_TYPE first_roman_number : to hold the pointer of first roman string.
+const ROMAN_TYPE second_roman_number: to hold the pointer of second roman string.
 ROMAN_OPERATION operation: add/subtract operation will be passed in the variable.
 ROMAN_TYPE result: to store the result after the roman operation.*/
 ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_OPERATION operation, ROMAN_TYPE result)
@@ -48,8 +48,8 @@ ROMAN_TYPE calculate_roman_numbers(const ROMAN_TYPE first_roman_number,const ROM
 }
 /*-----------------------------------------*/
 /*add function to perform addition of roman numbers:
-const ROMAN_TYPE first_roman_number : to store the first roman string.
-const ROMAN_TYPE second_roman_number: to store the second roman string.
+const ROMAN_TYPE first_roman_number : to hold the pointer of first roman string.
+const ROMAN_TYPE second_roman_number: to hold the pointer of second roman string.
 ROMAN_TYPE result: to store the result after the roman operation.*/
 static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
@@ -86,8 +86,8 @@ static ROMAN_TYPE add(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE secon
 }
 
 /*subtract function to perform subtraction of roman numbers:
-const ROMAN_TYPE first_roman_number : to store the first roman string
-const ROMAN_TYPE second_roman_number: to store the second roman string
+const ROMAN_TYPE first_roman_number : to hold the pointer of first roman string
+const ROMAN_TYPE second_roman_number: to hold the pointer of second roman string
 ROMAN_TYPE result: to store the result after the roman operation*/
 static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE second_roman_number,ROMAN_TYPE result)
 {
@@ -107,7 +107,7 @@ static ROMAN_TYPE subtract(const ROMAN_TYPE first_roman_number,const ROMAN_TYPE 
 			used as there are no negative numbers or zero value in roman characters */
 		if(check_limit_of_subtracted_numbers(abs(first_number - second_number)) == TRUE)
 		{
-			if(is_subtracted_number_null(abs(first_number - second_number)) == TRUE)
+			if(is_subtracted_number_null(abs(first_number - second_number)) == FALSE)
 			{				
 			/* decimal_number_to_roman_string function is used to convert decimal value to roman string and returns the result */
 			result = decimal_number_to_roman_string(abs(first_number - second_number),result);

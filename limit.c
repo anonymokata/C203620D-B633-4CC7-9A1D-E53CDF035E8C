@@ -44,8 +44,8 @@ BOOL is_subtracted_number_null(int total_subtracted_value)
 {
 	bool validate;	
 	if(total_subtracted_value == 0)
-		validate = TRUE;
-	else
 		validate = FALSE;
+	else
+		validate = TRUE;
 return validate;
 }
