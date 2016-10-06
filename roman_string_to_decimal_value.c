@@ -8,8 +8,6 @@ File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
 Date		: 10/4/2016
  */
 
-#include <string.h>
-#include <stdlib.h>
 #include "calculator.h"
 #include "decimal_value_to_roman_string.h"
 #include "roman_string_to_decimal_value.h"
@@ -21,7 +19,6 @@ Date		: 10/4/2016
 #define D 500
 #define M 1000
 #define INVALID -1
-
 
 /*function to return decimal value of the roman digit*/
 int roman_to_decimal_digit_value(char roman_character)
@@ -65,29 +62,22 @@ int roman_to_decimal_digit_value(char roman_character)
 }
 
 /*function to return the decimal value based on the input roman string*/
-
 int roman_string_to_decimal_value(char roman_string[])
 {
-	int roman_string_index = 0; // index will be pointing to first element of the string
+	int roman_string_index = 0; // index points to first element of the string
 	int decimal_number = 0; // value to store the decimal value
-	/*while condition runs until all the characters in the string is checked*/
+	/*while condition runs until all the characters in the string are checked*/
 	while(roman_string[roman_string_index]) 
 	{
-		/*if condition check the order of the string. If first digit is greater than the second digit it add the value else 
+		/*if condition check the order of the string. If first digit is greater than the second digit it adds the value else 
 		it subtracts the value  */
-
 		if(roman_to_decimal_digit_value(roman_string[roman_string_index]) >= roman_to_decimal_digit_value(roman_string[roman_string_index+1])) 
 			decimal_number = decimal_number + roman_to_decimal_digit_value(roman_string[roman_string_index]);
-
 		else{
-			/* else condition function will check the order of the elements 
-				if the order of the string is not proper will return invalid string */
 			decimal_number = decimal_number+ (roman_to_decimal_digit_value(roman_string[roman_string_index+1]) - roman_to_decimal_digit_value(roman_string[roman_string_index]));
 			roman_string_index++;
-
 		}
-		roman_string_index++;/*incrementing the while loop string */
-
+		roman_string_index++;/*incrementing to next character */
 	}
-	return decimal_number; /*return of the final decimal value of the roman string*/
+	return decimal_number; /*return the final decimal value of the roman string*/
 }

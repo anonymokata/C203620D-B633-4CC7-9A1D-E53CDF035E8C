@@ -176,7 +176,7 @@ END_TEST
 START_TEST(Invalid_roman_character_A_equals_NULL)
 {
 
-ck_assert_msg(isRomanNumberValid("A") == INVALID,"A is not a valid roman character");
+ck_assert_msg(is_Roman_Number_Valid("A") == INVALID,"A is not a valid roman character");
 
 }
 END_TEST
@@ -184,7 +184,7 @@ END_TEST
 START_TEST(valid_roman_character_M_equals_1000)
 {
 
-ck_assert_msg(isRomanNumberValid("M") == VALID,"M is a valid roman character");
+ck_assert_msg(is_Roman_Number_Valid("M") == VALID,"M is a valid roman character");
 
 }
 END_TEST
@@ -432,7 +432,7 @@ END_TEST
 START_TEST(roman_subtraction_0_equals_null)
 {
 
-ck_assert_msg(isSubtractedNumberNull(0) == INVALID,"passed zero for subtraction as input");
+ck_assert_msg(is_Subtracted_Number_Null(0) == INVALID,"passed zero for subtraction as input");
 
 }
 END_TEST

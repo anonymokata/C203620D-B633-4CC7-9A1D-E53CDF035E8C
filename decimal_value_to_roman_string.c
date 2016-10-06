@@ -26,11 +26,11 @@ Date		: 10/4/2016
 static char* post_roman_digit_characters(char character,int count,char* result_memory);
 static char* pre_roman_digit_characters(char character1,char character2,char* result_memory);
 
-//storing the post digits
+/*Store digits for post-digit case*/
 /*Helper function for decimal_value_to_roman_string*/
 static char* post_roman_digit_characters(char character,int count,char* result_memory)
 {
-	/*this function stores the post digits of the roman character in temproary memory result_memory*/
+	/*this function stores the post digits of the roman character in temporary memory result_memory*/
 	static int character_count;
 	for(character_count = 0;character_count < count;character_count++){
 		*result_memory = character;
@@ -38,10 +38,11 @@ static char* post_roman_digit_characters(char character,int count,char* result_m
 	}
 	return result_memory;
 }
-/*function to store the predigits*/
+/*Store digits for pre-digit case*/
+/*Helper function for decimal_value_to_roman_string*/
 static char* pre_roman_digit_characters(char character1,char character2,char* result_memory)
 {
-	/*this function stores the previous digits of the roman character in temproary memory result_memory*/
+	/*this function stores the previous digits of the roman character in temporary memory result_memory*/
 	*result_memory = character1;
 	result_memory++;
 	*result_memory = character2;
@@ -49,16 +50,13 @@ static char* pre_roman_digit_characters(char character1,char character2,char* re
 	return result_memory;
 }
 
-
 char* decimal_number_to_roman_string(int decimal_number,char* result_memory)
 {
-
 	char *final_roman_string = result_memory;
 	/*while loop to return the roman string of the passed decimal number. Inside the loop it calls either post_roman_digit_characters 
 or pre_roman_digit_characters depending on the input */
 	while(decimal_number != zero)
 	{
-
 		if(decimal_number >= M_VALUE){ // converstion for 1000
 			result_memory = post_roman_digit_characters('M',decimal_number/M_VALUE,result_memory);
 			decimal_number = decimal_number - (decimal_number/M_VALUE) * M_VALUE;		
@@ -93,7 +91,6 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (XC);
 			}
 		} /*end of if(decimal_number >=50) */
-
 		else if(decimal_number >=X_VALUE){ //conversion for 10
 			if(decimal_number < (XL)){
 				result_memory = post_roman_digit_characters('X',decimal_number/X_VALUE,result_memory);
@@ -125,9 +122,7 @@ or pre_roman_digit_characters depending on the input */
 				decimal_number = decimal_number - (IV);
 			}
 		}/*end of if(decimal_number >=1) */
-
 	}/*End of while loop*/
-
 	*result_memory = '\0';
 	return final_roman_string;
 }/*End of main function*/

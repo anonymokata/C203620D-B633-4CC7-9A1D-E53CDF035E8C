@@ -8,14 +8,13 @@ File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
 Date		: 10/4/2016
  */
 
-#include <string.h>
+
 #include "error.h"
 
 /*switch case to handle errors*/
 char* error(ERRORS error_value)
 {
 	char* error_string;	
-	
 	switch(error_value)
 	{
 	case INVALID_OPERATION:
